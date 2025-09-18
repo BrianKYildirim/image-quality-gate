@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Format with black and fix ruff nits" />
+    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg">
+      <change beforePath="$PROJECT_DIR$/requirements-dev.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements-dev.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758219258391</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg">
+      <option name="closed" value="true" />
+      <created>1758219757223</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1758219757223</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,6 +199,7 @@
     <MESSAGE value="tune_blur helper and threshold tuning guide with sample images for testing" />
     <MESSAGE value="Fixing GitHub Actions CI errors" />
     <MESSAGE value="Format with black and fix ruff nits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Format with black and fix ruff nits" />
+    <MESSAGE value="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg" />
   </component>
 </project>
