@@ -1,0 +1,12 @@
+.PHONY: run test lint fmt build
+run:
+	uvicorn app.main:app --reload --port 8080
+test:
+	pytest -q
+lint:
+	ruff check .
+	mypy app
+fmt:
+	black . && ruff check --fix .
+build:
+	docker build -t image-quality-gate:local .
