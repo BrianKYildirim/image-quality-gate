@@ -4,6 +4,7 @@ import json
 import time
 from typing import Mapping
 
+
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         base = {
@@ -19,9 +20,14 @@ class JsonFormatter(logging.Formatter):
             base.update(extra)  # type: ignore[arg-type]
         return json.dumps(base)
 
+
 def configure_logging(json_mode: bool, level: str) -> None:
     handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(JsonFormatter() if json_mode else logging.Formatter("%(levelname)s: %(message)s"))
+    handler.setFormatter(
+        JsonFormatter()
+        if json_mode
+        else logging.Formatter("%(levelname)s: %(message)s")
+    )
     root = logging.getLogger()
     root.handlers.clear()
     root.addHandler(handler)
