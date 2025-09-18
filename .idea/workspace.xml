@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Laplacian variance blur + brightness metrics" />
+    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="JSON logging and Prometheus /metrics">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,13 +94,31 @@
       <option name="project" value="LOCAL" />
       <updated>1758209822958</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="POST /quality returns blur_score, brightness, is_ok">
+      <option name="closed" value="true" />
+      <created>1758209924854</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758209924854</updated>
+    </task>
+    <task id="LOCAL-00005" summary="JSON logging and Prometheus /metrics">
+      <option name="closed" value="true" />
+      <created>1758213746371</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1758213746371</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Scaffold FastAPI service with /health and /version" />
     <MESSAGE value="12-factor env settings and defaults" />
     <MESSAGE value="Laplacian variance blur + brightness metrics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laplacian variance blur + brightness metrics" />
+    <MESSAGE value="POST /quality returns blur_score, brightness, is_ok" />
+    <MESSAGE value="JSON logging and Prometheus /metrics" />
+    <option name="LAST_COMMIT_MESSAGE" value="JSON logging and Prometheus /metrics" />
   </component>
 </project>
