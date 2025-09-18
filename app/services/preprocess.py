@@ -1,4 +1,5 @@
-import cv2, numpy as np
+import cv2
+import numpy as np
 from PIL import Image, ImageOps
 from io import BytesIO
 
