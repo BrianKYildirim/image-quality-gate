@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Fixing GitHub Actions CI errors" />
+    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Format with black and fix ruff nits" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +16,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +54,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/yildi/OneDrive/Desktop/Projects/Portfolio/image-quality-gate/scripts/samples",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "actions.on.save"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -163,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758218783217</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Format with black and fix ruff nits">
+      <option name="closed" value="true" />
+      <created>1758219258391</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1758219258391</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,6 +188,7 @@
     <MESSAGE value="GitHub Actions lint + typecheck + tests" />
     <MESSAGE value="tune_blur helper and threshold tuning guide with sample images for testing" />
     <MESSAGE value="Fixing GitHub Actions CI errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing GitHub Actions CI errors" />
+    <MESSAGE value="Format with black and fix ruff nits" />
+    <option name="LAST_COMMIT_MESSAGE" value="Format with black and fix ruff nits" />
   </component>
 </project>
