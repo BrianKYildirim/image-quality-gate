@@ -1,4 +1,7 @@
-import logging, sys, json, time
+import logging
+import sys
+import json
+import time
 from typing import Mapping
 
 class JsonFormatter(logging.Formatter):

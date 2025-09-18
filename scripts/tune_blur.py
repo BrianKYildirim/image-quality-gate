@@ -11,10 +11,10 @@ Usage (examples):
 Notes:
 - Requires Pillow, numpy, opencv-python[-headless].
 - --plot requires matplotlib (optional).
-
-Author: You (Brian) — Image Quality Gate
 """
-import argparse, csv, sys
+import argparse
+import csv
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List, Tuple
