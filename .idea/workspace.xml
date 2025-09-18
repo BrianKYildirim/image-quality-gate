@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg">
-      <change beforePath="$PROJECT_DIR$/requirements-dev.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements-dev.txt" afterDir="false" />
+    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="add httpx for FastAPI TestClient">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758219757223</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add httpx for FastAPI TestClient">
+      <option name="closed" value="true" />
+      <created>1758219960168</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1758219960168</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -200,6 +209,7 @@
     <MESSAGE value="Fixing GitHub Actions CI errors" />
     <MESSAGE value="Format with black and fix ruff nits" />
     <MESSAGE value="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pillow resampling enum + cast; ignore pydantic BaseSettings call-arg" />
+    <MESSAGE value="add httpx for FastAPI TestClient" />
+    <option name="LAST_COMMIT_MESSAGE" value="add httpx for FastAPI TestClient" />
   </component>
 </project>
