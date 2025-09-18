@@ -6,10 +6,16 @@ from app.core.logging import configure_logging
 from app.core.metrics import setup_metrics
 from app.api.routes_quality import router as quality_router
 
+
 def create_app() -> FastAPI:
     configure_logging(settings.log_json, settings.log_level)
     app = FastAPI(title=settings.app_name, version=settings.app_version)
-    app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["POST","GET"], allow_headers=["*"])
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_methods=["POST", "GET"],
+        allow_headers=["*"],
+    )
     app.include_router(quality_router)
     if settings.prometheus_enabled:
         setup_metrics(app)
@@ -26,5 +32,6 @@ def create_app() -> FastAPI:
         return response
 
     return app
+
 
 app = create_app()

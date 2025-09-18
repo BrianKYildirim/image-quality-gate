@@ -77,7 +77,7 @@ def otsu_threshold(values: np.ndarray, bins: int = 128, log=False) -> float:
     mu_t = mu[-1]
     sigma_b2 = (mu_t * omega - mu) ** 2 / np.clip(omega * (1 - omega), 1e-12, None)
     k = int(np.nanargmax(sigma_b2))
-    thr = (edges[k] + edges[k+1]) / 2.0
+    thr = (edges[k] + edges[k + 1]) / 2.0
     return float(10**thr) if log else float(thr)
 
 
@@ -127,7 +127,13 @@ def write_csv(records: List[Record], csv_path: Path) -> None:
         w.writerow(["path", "width", "height", "blur_score", "brightness"])
         for r in records:
             w.writerow(
-                [str(r.path), r.width, r.height, f"{r.blur_score:.4f}", f"{r.brightness:.2f}"]
+                [
+                    str(r.path),
+                    r.width,
+                    r.height,
+                    f"{r.blur_score:.4f}",
+                    f"{r.brightness:.2f}",
+                ]
             )
     print(f"Wrote CSV: {csv_path}")
 
@@ -172,11 +178,18 @@ def main() -> None:
     ap = argparse.ArgumentParser(
         description="Compute blur + brightness stats for images in a folder."
     )
-    ap.add_argument("--dir", required=True, type=Path, help="Folder containing images (recurses).")
     ap.add_argument(
-        "--max-dim", type=int, default=1600, help="Cap on larger image side before scoring."
+        "--dir", required=True, type=Path, help="Folder containing images (recurses)."
     )
-    ap.add_argument("--csv", type=Path, default=None, help="Optional path to write CSV results.")
+    ap.add_argument(
+        "--max-dim",
+        type=int,
+        default=1600,
+        help="Cap on larger image side before scoring.",
+    )
+    ap.add_argument(
+        "--csv", type=Path, default=None, help="Optional path to write CSV results."
+    )
     ap.add_argument(
         "--plot",
         type=Path,
@@ -197,7 +210,9 @@ def main() -> None:
             gray, w, h = load_and_prepare(p, args.max_dim)
             bs = variance_of_laplacian(gray)
             br = brightness(gray)
-            records.append(Record(path=p, width=w, height=h, blur_score=bs, brightness=br))
+            records.append(
+                Record(path=p, width=w, height=h, blur_score=bs, brightness=br)
+            )
         except Exception as e:
             print(f"[warn] failed to process {p}: {e}", file=sys.stderr)
 

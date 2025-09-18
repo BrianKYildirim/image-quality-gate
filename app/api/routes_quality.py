@@ -6,9 +6,11 @@ from app.models.schemas import QualityResponse
 
 router = APIRouter()
 
+
 @router.get("/health")
 def health() -> dict:
     return {"status": "ok"}
+
 
 @router.post("/quality", response_model=QualityResponse)
 async def quality(file: UploadFile = File(...)) -> QualityResponse:
@@ -23,6 +25,16 @@ async def quality(file: UploadFile = File(...)) -> QualityResponse:
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid image data")
     gray = to_gray(bgr)
-    res = assess(gray, Thresholds(settings.blur_min, settings.bright_min, settings.bright_max))
-    return QualityResponse(**res, width=w, height=h,
-                           thresholds={"blur_min": settings.blur_min, "bright_min": settings.bright_min, "bright_max": settings.bright_max})
+    res = assess(
+        gray, Thresholds(settings.blur_min, settings.bright_min, settings.bright_max)
+    )
+    return QualityResponse(
+        **res,
+        width=w,
+        height=h,
+        thresholds={
+            "blur_min": settings.blur_min,
+            "bright_min": settings.bright_min,
+            "bright_max": settings.bright_max,
+        }
+    )

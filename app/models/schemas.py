@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class QualityResponse(BaseModel):
     blur_score: float
     brightness: float

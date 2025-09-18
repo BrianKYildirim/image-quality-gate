@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="tune_blur helper and threshold tuning guide with sample images for testing">
-      <change beforePath="$PROJECT_DIR$/app/core/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/logging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/quality.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/quality.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/tune_blur.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/tune_blur.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-    </list>
+    <list default="true" id="9064ea94-424a-46b7-9006-e97d6cad0c9b" name="Changes" comment="Fixing GitHub Actions CI errors" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758218432752</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixing GitHub Actions CI errors">
+      <option name="closed" value="true" />
+      <created>1758218783217</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1758218783217</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +176,7 @@
     <MESSAGE value="Dockerfile and compose for local runs" />
     <MESSAGE value="GitHub Actions lint + typecheck + tests" />
     <MESSAGE value="tune_blur helper and threshold tuning guide with sample images for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="tune_blur helper and threshold tuning guide with sample images for testing" />
+    <MESSAGE value="Fixing GitHub Actions CI errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing GitHub Actions CI errors" />
   </component>
 </project>
