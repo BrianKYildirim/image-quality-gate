@@ -118,7 +118,7 @@ Note: If you change ``RESIZE_MAX_DIM``, you should re-run threshold tuning becau
 
 1. Build the Docker image from the Dockerfile located at the project root.
 2. Run the container and publish port 8080 while loading environment variables from your .env file.
-3. Alternatively,` use Docker Compose. The compose file builds the image, sets the environment, and publishes port 8080.
+3. Alternatively, use Docker Compose. The compose file builds the image, sets the environment, and publishes port 8080.
 4. If you are mixing architectures, set the platform to linux slash amd64 as appropriate.
 
 -------------------------------------------------------------------------------
