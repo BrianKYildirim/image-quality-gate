@@ -5,8 +5,8 @@ A small, production-ready microservice that scores uploaded images for sharpness
 TL;DR
 - Blur metric: Variance of Laplacian (higher means sharper)
 - Brightness metric: Mean grayscale in the range 0 to 255
-- Decision rule: is_ok equals true when ``blur_score`` is greater than or equal to ``BLUR_MIN`` and brightness is between ``BRIGHT_MIN`` and ``BRIGHT_MAX``
-- Recommended thresholds from tuning: ``BLUR_MIN equals 160``, ``BRIGHT_MIN equals 40``, ``BRIGHT_MAX equals 180``
+- Decision rule: ``is_ok`` equals true when ``blur_score`` is greater than or equal to ``BLUR_MIN`` and brightness is between ``BRIGHT_MIN`` and ``BRIGHT_MAX``
+- Recommended thresholds from tuning: ``BLUR_MIN`` equals 160, ``BRIGHT_MIN`` equals 40, ``BRIGHT_MAX`` equals 180
 - Endpoints provided: ``POST /quality, GET /health, GET /metrics, GET /version``
 
 -------------------------------------------------------------------------------
@@ -136,21 +136,21 @@ High-level layout
   - services preprocess: EXIF orientation fix, resize, and color conversions
   - services quality: blur and brightness metrics and decision function
   - models schemas: response models
-- scripts folder: contains the tune_blur helper for threshold tuning, as well as sample images you can test
+- scripts folder: contains the ```tune_blur``` helper for threshold tuning, as well as sample images you can test
 - tests folder: assets and unit plus integration tests
-- .env example, requirements files, Dockerfile, docker compose file, pytest configuration, optional Makefile, README, and changelog
+- .env example, requirements files, Dockerfile, docker compose file, optional Makefile, and the README
 
 -------------------------------------------------------------------------------
 
 ## 9. Threshold tuning
 
-The scripts folder includes a tune_blur helper that scans a folder of images, computes blur and brightness, and suggests a BLUR_MIN value using a log space Otsu threshold which handles heavy tails. It also supports a labeled sweep mode that assumes a samples folder with subfolders named sharp and any folder with a name that begins with blur such as blur_motion or blur_defocus.
+The scripts folder includes a ``tune_blur`` helper that scans a folder of images, computes blur and brightness, and suggests a ``BLUR_MIN`` value using a log space Otsu threshold, which handles heavy tails. It also supports a labeled sweep mode that assumes a samples folder with subfolders named sharp and any folder with a name that begins with blur, such as ``blur_motion`` or ``blur_defocus``.
 
 Typical usage
 - Place a set of images in the samples folder.
 - Run the tuner with or without labels to obtain suggested thresholds.
 - Optionally save a CSV of results and histogram images for documentation.
-- Update the dot env file with the chosen BLUR_MIN, BRIGHT_MIN, and BRIGHT_MAX values.
+- Update the .env file with the chosen ``BLUR_MIN``, ``BRIGHT_MIN``, and ``BRIGHT_MAX values``.
 - Restart the service and spot check decisions on a random selection of images.
 
 A good starting point from a labeled dataset of 1000 images with equal counts of sharp, motion blur, and defocus blur resulted in ``BLUR_MIN`` equal to 160, ``BRIGHT_MIN`` equal to 40, and ``BRIGHT_MAX`` equal to 180. Your numbers may vary depending on camera sources and lighting conditions.
