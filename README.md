@@ -67,9 +67,24 @@ Request flow for the minimum viable product
 ## 4. API
 
 ``POST /quality``
-- Purpose: Accept a multipart form upload with field name file and return ``blur_score``, ``brightness``, ``width``, ``height``, ``is_ok``, and the thresholds used.
-- Success: Returns a ``200 OK`` response with a JSON body describing the metrics and decision.
-- Errors: Returns ``415`` for unsupported media type, ``413`` for payload that is too large, and ``400`` for invalid image data.
+- **Purpose**: Accept a multipart form upload with field name file and return ``blur_score``, ``brightness``, ``width``, ``height``, ``is_ok``, and the thresholds used.
+- **Success**: Returns a ``200 OK`` response with a JSON body describing the metrics and decision.
+- **Errors**: Returns ``415`` for unsupported media type, ``413`` for payload that is too large, and ``400`` for invalid image data.
+- **200 Response** (example):
+```
+{
+  "blur_score": 513.42,
+  "brightness": 121.8,
+  "width": 1280,
+  "height": 960,
+  "is_ok": true,
+  "thresholds": {
+    "blur_min": 160.0,
+    "bright_min": 40,
+    "bright_max": 180
+  }
+}
+```
 
 ``GET /health``
 - Purpose: Liveness probe.
@@ -85,7 +100,7 @@ Request flow for the minimum viable product
 
 ## 5. Configuration
 
-Create a ``.env`` file or provide environment variables at runtime. The following variables are supported.
+Create a .env file or provide environment variables at runtime. The following variables are supported.
 
 - ``BLUR_MIN``: numeric. Minimum blur score required for acceptance. Example 160.
 - ``BRIGHT_MIN``: integer. Minimum brightness allowed. Example 40.
