@@ -1,77 +1,82 @@
-# Image Quality Gate (FastAPI + OpenCV)
+# Image Quality Gate
 
-A small, production-ready microservice that scores uploaded images for sharpness and brightness and returns a simple ``is_ok`` decision. It is designed to sit next to your upload pipeline (for example, a Spring Boot app that uses S3 presigned uploads) and reject unusable photos before they enter your dataset.
+A FastAPI microservice that evaluates uploaded images for **sharpness** and **brightness**.
 
-TL;DR
-- Blur metric: Variance of Laplacian (higher means sharper)
-- Brightness metric: Mean grayscale in the range 0 to 255
-- Decision rule: ``is_ok`` equals true when ``blur_score`` is greater than or equal to ``BLUR_MIN`` and brightness is between ``BRIGHT_MIN`` and ``BRIGHT_MAX``
-- Recommended thresholds from tuning: ``BLUR_MIN`` equals 160, ``BRIGHT_MIN`` equals 40, ``BRIGHT_MAX`` equals 180
-- Endpoints provided: ``POST /quality, GET /health, GET /metrics, GET /version``
+The service uses OpenCV and Pillow to analyze an image, calculate quality metrics, and return a simple `is_ok` decision that can be used by an upload pipeline, moderation system, or backend application.
 
--------------------------------------------------------------------------------
+## How It Works
 
-## Table of Contents
+When an image is uploaded, the service:
 
-1. [Why this exists](#1-why-this-exists)
-2. [Features](#2-features)
-3. [Architecture](#3-architecture)
-4. [API](#4-api)
-   - POST /quality
-   - GET /health
-   - GET /version
-   - GET /metrics
-5. [Configuration](#5-configuration)
-6. [Quickstart](#6-quickstart)
-7. [Run in Docker](#7-run-in-docker)
-8. [Directory structure](#8-directory-structure)
-9. [Threshold tuning](#9-threshold-tuning)
-10. [Performance expectations](#10-performance-expectations)
-11. [Security and robustness](#11-security-and-robustness)
-12. [Testing and CI](#12-testing-and-ci)
-13. [Troubleshooting on Windows and Docker Desktop](#13-troubleshooting-on-windows-and-docker-desktop)
-14. [Acknowledgments](#14-acknowledgments)
+1. Validates that the file is an image.
+2. Rejects files larger than the configured upload limit.
+3. Corrects the image's EXIF orientation.
+4. Resizes oversized images to reduce processing cost.
+5. Converts the image to grayscale.
+6. Calculates:
+   - **Blur score** using the variance of Laplacian
+   - **Brightness** using the mean grayscale intensity
+7. Compares both metrics against configurable thresholds.
+8. Returns the metrics and a final `is_ok` decision.
 
--------------------------------------------------------------------------------
-
-## 1. Why this exists
-
-Crowdsourced or reporting apps collect many photos. Some are blurry, dark, or overexposed, which hurts downstream use such as triage, machine learning, or public dashboards. This service provides a fast, deterministic gate to keep the image set clean without adding GPU or heavy ML complexity.
-
--------------------------------------------------------------------------------
-
-## 2. Features
-
-- Fast: OpenCV executes C or C++ under the hood and runs well on CPUs without GPUs.
-- Deterministic: Variance of Laplacian for blur plus simple brightness thresholds.
-- Configurable: All thresholds are set by environment variables; no redeploy required to tune.
-- Operational: Prometheus metrics endpoint, JSON logs, health, and version endpoints.
-- Secure by default: Multipart-only in this version, type and size checks, EXIF orientation fix, and CORS can be restricted.
-- Portable: Single Docker image with minimal footprint.
-- Tested: Unit and integration tests with fixture images.
-
--------------------------------------------------------------------------------
-
-## 3. Architecture
-
-Request flow for the minimum viable product
-
-1. The client uploads the original photo to object storage using a presigned URL that your backend issues.
-2. Your backend fetches the photo bytes or a thumbnail and sends them to this service using ``POST`` to the quality endpoint.
-3. This service computes both ``blur_score`` using the variance of Laplacian on a grayscale version of the image and brightness using the mean grayscale intensity.
-4. The response includes the metrics, image dimensions, ``is_ok`` decision, and the thresholds that were applied.
-5. Your backend either rejects the photo and returns an appropriate error to the client, or accepts the photo and persists metadata, including the ``blur_score``.
-
--------------------------------------------------------------------------------
-
-## 4. API
-
-``POST /quality``
-- **Purpose**: Accept a multipart form upload with field name file and return ``blur_score``, ``brightness``, ``width``, ``height``, ``is_ok``, and the thresholds used.
-- **Success**: Returns a ``200 OK`` response with a JSON body describing the metrics and decision.
-- **Errors**: Returns ``415`` for unsupported media type, ``413`` for payload that is too large, and ``400`` for invalid image data.
-- **200 Response** (example):
+```text
+Image upload
+     │
+     ▼
+Validate file type and size
+     │
+     ▼
+Normalize orientation and dimensions
+     │
+     ▼
+Convert to grayscale
+     │
+     ├── Calculate blur score
+     ├── Calculate brightness
+     │
+     ▼
+Apply configured thresholds
+     │
+     ▼
+Return quality decision
 ```
+
+## Features
+
+- FastAPI REST API
+- Multipart image uploads
+- Blur detection using variance of Laplacian
+- Brightness detection using grayscale intensity
+- Configurable quality thresholds
+- EXIF orientation correction
+- Automatic image resizing
+- Upload size validation
+- JSON logging
+- Request IDs through the `X-Request-ID` header
+- Health and version endpoints
+- Optional Prometheus metrics
+- Docker and Docker Compose support
+- Unit and integration tests
+- No GPU required
+
+## API Endpoints
+
+### `POST /quality`
+
+Analyzes an uploaded image.
+
+The request must use `multipart/form-data` with a field named `file`.
+
+#### Example with cURL
+
+```bash
+curl -X POST "http://localhost:8080/quality" \
+  -F "file=@tests/assets/sharp_small.jpg"
+```
+
+#### Successful response
+
+```json
 {
   "blur_score": 513.42,
   "brightness": 121.8,
@@ -79,137 +84,381 @@ Request flow for the minimum viable product
   "height": 960,
   "is_ok": true,
   "thresholds": {
-    "blur_min": 160.0,
-    "bright_min": 40,
-    "bright_max": 180
+    "blur_min": 140.0,
+    "bright_min": 20,
+    "bright_max": 235
   }
 }
 ```
 
-``GET /health``
-- Purpose: Liveness probe.
-- Success: Returns ``200 OK`` with a small JSON body indicating status ok.
+#### Response fields
 
-``GET /version``
-- Purpose: Exposes app name and version from the environment for debugging and rollouts.
+| Field | Type | Description |
+|---|---:|---|
+| `blur_score` | `float` | Variance of Laplacian; higher values generally indicate a sharper image |
+| `brightness` | `float` | Average grayscale intensity from `0` to `255` |
+| `width` | `integer` | Processed image width |
+| `height` | `integer` | Processed image height |
+| `is_ok` | `boolean` | Whether the image satisfies the configured quality thresholds |
+| `thresholds` | `object` | Threshold values used for the decision |
 
-``GET /metrics``
-- Purpose: Exposes Prometheus metrics in text format, including request counters and latency histograms.
+#### Decision rule
 
--------------------------------------------------------------------------------
+An image passes when:
 
-## 5. Configuration
+```text
+blur_score >= BLUR_MIN
+AND
+BRIGHT_MIN <= brightness <= BRIGHT_MAX
+```
 
-Create a .env file or provide environment variables at runtime. The following variables are supported.
+### `GET /health`
 
-- ``BLUR_MIN``: numeric. Minimum blur score required for acceptance. Example 160.
-- ``BRIGHT_MIN``: integer. Minimum brightness allowed. Example 40.
-- ``BRIGHT_MAX``: integer. Maximum brightness allowed. Example 180.
-- ``RESIZE_MAX_DIM``: integer. Maximum side length before scoring to bound CPU use. Example 1600.
-- ``MAX_UPLOAD_MB``: integer. Maximum file size accepted in megabytes. Example 6.
-- ``LOG_LEVEL``: string. Example INFO.
-- ``LOG_JSON``: boolean. Example true.
-- ``PROMETHEUS_ENABLED``: boolean. Example true.
-- ``APP_NAME``: string. Example image-quality-gate.
-- ``APP_VERSION``: string. Example 0.1.0.
+Returns the service health status.
 
-Note: If you change ``RESIZE_MAX_DIM``, you should re-run threshold tuning because scores change with resolution.
+```bash
+curl http://localhost:8080/health
+```
 
--------------------------------------------------------------------------------
+Response:
 
-## 6. Quickstart
+```json
+{
+  "status": "ok"
+}
+```
 
-1. Create a Python virtual environment for your platform.
-2. Activate the environment.
-3. Install the dependencies from requirements. Use binary wheels only on Windows to avoid building from source.
-4. Copy .env example to .env and adjust thresholds if needed.
-5. Start the service using Uvicorn on port 8080.
-6. Visit slash docs for interactive API documentation or call the endpoints directly.
-7. Test with the included fixture images to verify that sharp photos return ``is_ok`` equals true and blurry photos return ``is_ok`` equals false.
+### `GET /version`
 
--------------------------------------------------------------------------------
+Returns the configured application name and version.
 
-## 7. Run in Docker
+```bash
+curl http://localhost:8080/version
+```
 
-1. Build the Docker image from the Dockerfile located at the project root.
-2. Run the container and publish port 8080 while loading environment variables from your .env file.
-3. Alternatively, use Docker Compose. The compose file builds the image, sets the environment, and publishes port 8080.
-4. If you are mixing architectures, set the platform to linux slash amd64 as appropriate.
+Response:
 
--------------------------------------------------------------------------------
+```json
+{
+  "app": "image-quality-gate",
+  "version": "0.1.0"
+}
+```
 
-## 8. Directory structure
+### `GET /metrics`
 
-High-level layout
+Returns Prometheus-compatible metrics when metrics are enabled.
 
-- app folder: application code
-  - main module: FastAPI app factory, CORS, version, metrics setup
-  - api routes: quality and health endpoints
-  - core config: environment settings using pydantic settings
-  - core logging: JSON logging helpers
-  - core metrics: Prometheus instrumentator setup
-  - services preprocess: EXIF orientation fix, resize, and color conversions
-  - services quality: blur and brightness metrics and decision function
-  - models schemas: response models
-- scripts folder: contains the ```tune_blur``` helper for threshold tuning, as well as sample images you can test
-- tests folder: assets and unit plus integration tests
-- .env example, requirements files, Dockerfile, docker compose file, optional Makefile, and the README
+```bash
+curl http://localhost:8080/metrics
+```
 
--------------------------------------------------------------------------------
+## HTTP Error Responses
 
-## 9. Threshold tuning
+| Status | Meaning |
+|---:|---|
+| `400` | The uploaded file is not valid image data |
+| `413` | The uploaded file exceeds the configured size limit |
+| `415` | The uploaded file is not an image |
+| `500` | Unexpected server-side error |
 
-The scripts folder includes a ``tune_blur`` helper that scans a folder of images, computes blur and brightness, and suggests a ``BLUR_MIN`` value using a log space Otsu threshold, which handles heavy tails. It also supports a labeled sweep mode that assumes a samples folder with subfolders named sharp and any folder with a name that begins with blur, such as ``blur_motion`` or ``blur_defocus``.
+## Technology Stack
 
-Typical usage
-- Place a set of images in the samples folder.
-- Run the tuner with or without labels to obtain suggested thresholds.
-- Optionally save a CSV of results and histogram images for documentation.
-- Update the .env file with the chosen ``BLUR_MIN``, ``BRIGHT_MIN``, and ``BRIGHT_MAX values``.
-- Restart the service and spot check decisions on a random selection of images.
+- **Python**
+- **FastAPI**
+- **Uvicorn**
+- **OpenCV**
+- **Pillow**
+- **NumPy**
+- **Pydantic Settings**
+- **Prometheus FastAPI Instrumentator**
+- **Docker**
 
-A good starting point from a labeled dataset of 1000 images with equal counts of sharp, motion blur, and defocus blur resulted in ``BLUR_MIN`` equal to 160, ``BRIGHT_MIN`` equal to 40, and ``BRIGHT_MAX`` equal to 180. Your numbers may vary depending on camera sources and lighting conditions.
+## Project Structure
 
--------------------------------------------------------------------------------
+```text
+image-quality-gate/
+├── app/
+│   ├── api/
+│   │   └── routes_quality.py       # API routes
+│   ├── core/
+│   │   ├── config.py               # Environment-based settings
+│   │   ├── logging.py              # Logging configuration
+│   │   └── metrics.py              # Prometheus metrics setup
+│   ├── models/
+│   │   └── schemas.py              # Response schemas
+│   ├── services/
+│   │   ├── preprocess.py           # Image loading and normalization
+│   │   └── quality.py              # Blur, brightness, and decision logic
+│   └── main.py                     # FastAPI application entry point
+├── scripts/
+│   ├── samples/                    # Sample images for analysis
+│   └── tune_blur.py                # Blur threshold tuning utility
+├── tests/
+│   ├── assets/                     # Test images
+│   ├── integration/                # API integration tests
+│   └── unit/                       # Unit tests
+├── .env.example                    # Example configuration
+├── Dockerfile                      # Production container definition
+├── docker-compose.yml              # Docker Compose configuration
+├── Makerfile                       # Common development commands
+├── requirements.txt                # Runtime dependencies
+└── README.md
+```
 
-## 10. Performance expectations
+## Requirements
 
-On a typical CPU with no GPU and with ``RESIZE_MAX_DIM`` equal to 1600 on 1080p inputs:
-- Median latency often falls between approximately 30 and 60 milliseconds.
-- 95th percentile latency often falls between approximately 80 and 120 milliseconds.
-- Throughput can exceed 100 requests per second locally using two Uvicorn workers.
+- Python 3.11 or newer
+- `pip`
+- Optional: Docker and Docker Compose
 
-If you change ``RESIZE_MAX_DIM``, expect both latency and blur scores to shift. Re-tune thresholds after such changes.
+## Local Development
 
--------------------------------------------------------------------------------
+### 1. Clone the repository
 
-## 11. Security and robustness
+```bash
+git clone https://github.com/BrianKYildirim/image-quality-gate.git
+cd image-quality-gate
+```
 
-- Multipart only in this version; no remote URL fetches, which avoids SSRF risk.
-- Reject non-images with status ``415`` and oversize requests with status ``413``.
-- Correct EXIF orientation before processing.
-- Restrict CORS to your domains for production deployments.
-- Use structured JSON logs and do not log raw image bytes.
-- Processing is idempotent and safe to retry.
+### 2. Create a virtual environment
 
--------------------------------------------------------------------------------
+#### macOS or Linux
 
-## 12. Testing and CI
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-- Unit tests cover the quality math and preprocessing edge cases.
-- Integration tests exercise the API endpoint using fixture images.
-- A GitHub Actions workflow installs dependencies, runs linting and type checks, and executes the test suite on every push and pull request.
+#### Windows PowerShell
 
--------------------------------------------------------------------------------
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
 
-## 13. Troubleshooting on Windows and Docker Desktop
+### 3. Install dependencies
 
-- If pip attempts to build from source, use the pinned versions in requirements and install with wheel only flags to avoid building components like OpenCV and NumPy from source.
-- If Docker Desktop shows errors related to the named pipe or API version, ensure the active Docker context is desktop dash linux, restart Docker Desktop, and rebuild without cache. As a fallback, build and run with plain docker build and docker run without Compose.
-- Avoid running Docker or pip commands from MSYS or Git Bash when on Windows; prefer PowerShell or Command Prompt to prevent path and SSL issues.
+```bash
+pip install -r requirements.txt
+```
 
--------------------------------------------------------------------------------
+### 4. Configure environment variables
 
-## 14. Acknowledgments
+Copy the example environment file:
 
-Built with FastAPI, OpenCV, NumPy, and Pillow. Metrics are provided by the Prometheus FastAPI Instrumentator.
+```bash
+cp .env.example .env
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+### 5. Start the development server
+
+```bash
+uvicorn app.main:app --reload --port 8080
+```
+
+The API will be available at:
+
+```text
+http://localhost:8080
+```
+
+Interactive API documentation is available at:
+
+- Swagger UI: `http://localhost:8080/docs`
+- ReDoc: `http://localhost:8080/redoc`
+
+## Configuration
+
+Configuration is loaded from environment variables or a local `.env` file.
+
+| Variable | Default | Description |
+|---|---:|---|
+| `BLUR_MIN` | `140.0` | Minimum accepted variance of Laplacian score |
+| `BRIGHT_MIN` | `20` | Minimum accepted brightness |
+| `BRIGHT_MAX` | `235` | Maximum accepted brightness |
+| `RESIZE_MAX_DIM` | `1600` | Maximum image width or height before processing |
+| `MAX_UPLOAD_MB` | `6` | Maximum accepted upload size in megabytes |
+| `LOG_LEVEL` | `INFO` | Application log level |
+| `LOG_JSON` | `true` | Enables JSON-formatted logs |
+| `PROMETHEUS_ENABLED` | `true` | Enables the `/metrics` endpoint |
+| `APP_NAME` | `image-quality-gate` | Application name returned by `/version` |
+| `APP_VERSION` | `0.0.0` | Application version returned by `/version` |
+
+Example configuration:
+
+```dotenv
+BLUR_MIN=140
+BRIGHT_MIN=20
+BRIGHT_MAX=235
+RESIZE_MAX_DIM=1600
+MAX_UPLOAD_MB=6
+LOG_LEVEL=INFO
+LOG_JSON=true
+PROMETHEUS_ENABLED=true
+APP_NAME=image-quality-gate
+APP_VERSION=0.1.0
+```
+
+### Threshold guidance
+
+Blur scores depend on image content, resolution, camera quality, and preprocessing settings. If `RESIZE_MAX_DIM` changes, blur thresholds should be evaluated again.
+
+The included tuning script can help estimate a useful blur threshold for a collection of sample images.
+
+## Docker
+
+### Build the image
+
+```bash
+docker build -t image-quality-gate:local .
+```
+
+### Run the container
+
+```bash
+docker run --rm \
+  --env-file .env \
+  -p 8080:8080 \
+  image-quality-gate:local
+```
+
+The service will be available at:
+
+```text
+http://localhost:8080
+```
+
+### Run with Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Docker Compose publishes the service on port `8080`.
+
+To stop it:
+
+```bash
+docker compose down
+```
+
+## Testing
+
+Install development dependencies if needed, then run:
+
+```bash
+pytest -q
+```
+
+The test suite includes:
+
+- Unit tests for blur calculations
+- Unit tests for brightness calculations
+- Image preprocessing tests
+- API integration tests
+- Validation tests for uploaded files
+- Response schema checks
+
+## Development Commands
+
+The repository includes a `Makerfile` with common commands.
+
+```bash
+make run
+```
+
+Starts the development server with reload enabled.
+
+```bash
+make test
+```
+
+Runs the test suite.
+
+```bash
+make lint
+```
+
+Runs Ruff and mypy.
+
+```bash
+make fmt
+```
+
+Formats the code with Black and applies Ruff fixes.
+
+```bash
+make build
+```
+
+Builds the local Docker image.
+
+## Threshold Tuning
+
+The `scripts/tune_blur.py` utility can be used to inspect a folder of images and help select quality thresholds.
+
+A typical tuning workflow is:
+
+1. Add representative sharp, blurry, dark, and overexposed images to `scripts/samples/`.
+2. Run the tuning script.
+3. Review the generated scores.
+4. Select suitable `BLUR_MIN`, `BRIGHT_MIN`, and `BRIGHT_MAX` values.
+5. Update `.env`.
+6. Test the API against a representative sample of images.
+
+Thresholds should be selected for the image sources used by your application rather than treated as universal values.
+
+## Production Considerations
+
+Before exposing this service publicly:
+
+- Restrict CORS origins instead of allowing every origin.
+- Place the service behind a reverse proxy or API gateway.
+- Add authentication if the endpoint is not internal.
+- Configure request timeouts and rate limits.
+- Monitor `/health` and `/metrics`.
+- Avoid logging image contents or sensitive metadata.
+- Keep upload limits aligned with available memory.
+- Use multiple Uvicorn workers when appropriate.
+- Re-tune thresholds when image sources or preprocessing settings change.
+
+## Use Cases
+
+This service can be integrated into:
+
+- User-upload validation workflows
+- Crowdsourced reporting platforms
+- Document or receipt ingestion pipelines
+- Image moderation systems
+- Computer vision preprocessing pipelines
+- Content management systems
+- Machine learning data preparation workflows
+
+## Limitations
+
+The quality decision is based only on blur and brightness. An image may pass the quality gate while still containing:
+
+- The wrong subject
+- Incorrect framing
+- Compression artifacts
+- Motion distortion not captured by the threshold
+- Unwanted objects
+- Poor composition
+- Unreadable text
+
+For more advanced validation, this service can be combined with OCR, object detection, face detection, or application-specific rules.
+
+## License
+
+No license is currently specified for this repository. Add a license file before distributing or reusing the project publicly.
+
+---
+
+Built with Python, FastAPI, OpenCV, Pillow, and NumPy.
