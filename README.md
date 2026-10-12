@@ -455,10 +455,6 @@ The quality decision is based only on blur and brightness. An image may pass the
 
 For more advanced validation, this service can be combined with OCR, object detection, face detection, or application-specific rules.
 
-## License
-
-No license is currently specified for this repository. Add a license file before distributing or reusing the project publicly.
-
 ---
 
 Built with Python, FastAPI, OpenCV, Pillow, and NumPy.
