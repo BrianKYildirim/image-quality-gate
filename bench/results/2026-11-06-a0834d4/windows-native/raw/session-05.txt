@@ -1,0 +1,50 @@
+blurry_small.jpg done
+sharp_small.jpg done
+photo_1600x1200.jpg done
+photo_4032x3024_exif6.jpg done
+
+Environment: platform=Windows-10-10.0.26300-SP0, cpu=11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz, cpu_count=8, python=3.11.18, numpy=2.4.6, opencv=5.0.0, pillow=13.0.0, fastapi=0.161.1, starlette=1.10.0, pydantic=2.14.3, uvicorn=0.54.0
+
+End to end over HTTP (ms). Paired Δ = variant - baseline /quality, per round.
+
+blurry_small.jpg (3589 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                     300     2.332     2.255     2.439     2.072     2.701      +0.000 [+0.000, +0.000]        -
+  current /quality                      300     2.500     2.400     2.593     2.225     2.818      +0.158 [+0.000, +0.270]        -
+  current /quality/diagnostics          300     2.778     2.603     2.951     2.363     3.198      +0.426 [+0.227, +0.656]    1.320
+  current /quality/diagnostics+hist64   300     3.802     3.695     3.968     3.518     4.337      +1.465 [+1.325, +1.664]    2.365
+  /quality body identical to baseline: yes
+
+sharp_small.jpg (2294 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                     300     2.322     2.244     2.431     2.055     2.710      +0.000 [+0.000, +0.000]        -
+  current /quality                      300     2.293     2.160     2.457     1.950     2.846      -0.027 [-0.195, +0.134]        -
+  current /quality/diagnostics          300     2.702     2.519     2.876     2.297     3.373      +0.372 [+0.154, +0.573]    1.175
+  current /quality/diagnostics+hist64   300     3.913     3.788     4.089     3.544     4.628      +1.599 [+1.395, +1.786]    2.445
+  /quality body identical to baseline: yes
+
+photo_1600x1200.jpg (278661 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                      60    34.139    33.441    35.858    32.860    45.426      +0.000 [+0.000, +0.000]        -
+  current /quality                       60    34.005    32.831    36.910    32.183    39.753      -0.352 [-1.614, +1.987]        -
+  current /quality/diagnostics           60    46.720    45.895    49.524    45.263    54.619   +12.226 [+10.681, +15.027]   42.513
+  current /quality/diagnostics+hist64    60    63.877    62.559    66.749    61.405    79.316   +29.480 [+27.760, +32.932]   60.015
+  /quality body identical to baseline: yes
+
+photo_4032x3024_exif6.jpg (1608635 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                      60   228.696   223.546   233.756   220.547   242.571      +0.000 [+0.000, +0.000]        -
+  current /quality                       60   229.604   224.272   234.606   221.436   249.598      +0.412 [-5.366, +9.191]        -
+  current /quality/diagnostics           60   240.234   236.935   245.381   233.959   258.722    +12.072 [+5.734, +19.110]  228.661
+  current /quality/diagnostics+hist64    60   255.093   252.770   260.341   250.527   270.103   +26.511 [+21.286, +33.707]  243.824
+  /quality body identical to baseline: yes
+'handler' is the median server-reported handler_total_ns (diagnostics only).
+
+Pipeline A/B (in-process, no HTTP; baseline vs current /quality path)
+  asset                        pairs   baseline    current  Δ median     Δ p25     Δ p75
+  blurry_small.jpg               400      874.9      919.8     +31.1     -90.4    +141.0
+  sharp_small.jpg                400      749.8      772.7     +15.3    -179.9    +215.5
+  photo_1600x1200.jpg             20    31159.4    30810.8    -605.0   -1511.8    +111.1
+  photo_4032x3024_exif6.jpg       20   217278.7   215336.6   -2363.9   -4737.7    +985.0
+  Times in µs; Δ = current - baseline, per alternating pair.
+Wrote <repo>\bench\results\2026-11-06-a0834d4\windows-native\raw\session-05.json
