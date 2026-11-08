@@ -1,0 +1,1087 @@
+{
+ "cases": {
+  "jpeg_5000x5000": {
+   "content_type": "image/jpeg",
+   "description": "valid 5000 x 5000 (exactly 25 MP) photo-like JPEG, bench_quality.make_photo",
+   "filename": "photo_5000x5000.jpg",
+   "input_bytes": 3231093,
+   "sha256": "23572d8639d417e45f450147b9aead3768b4133242f545830a334b7e90ab9b57",
+   "transfer": "content-length"
+  },
+  "png_bomb_12000x12000": {
+   "content_type": "image/png",
+   "description": "solid gray (L, 128) PNG of 12000 x 12000 = 144 MP, Pillow default compression",
+   "filename": "bomb.png",
+   "input_bytes": 168457,
+   "sha256": "fda489b18620474c8a5bb4b5b7210fb8e8514197836014e08acde5e7ad93c601",
+   "transfer": "content-length"
+  },
+  "truncated_sharp_small": {
+   "content_type": "image/jpeg",
+   "description": "first half of tests/assets/sharp_small.jpg (1147 of 2294 bytes)",
+   "filename": "sharp_small.jpg",
+   "input_bytes": 1147,
+   "sha256": "2d345219451bd3d8b3f61cff70069ef5faa1c64cf3ba8bd348e57af74b2b2854",
+   "transfer": "content-length"
+  },
+  "upload_100mib_chunked": {
+   "content_type": "image/jpeg",
+   "description": "100 MiB multipart upload (zero bytes), Transfer-Encoding: chunked, 64 KiB chunks, no Content-Length",
+   "filename": "zeros.jpg",
+   "input_bytes": 104857600,
+   "sha256": null,
+   "transfer": "chunked"
+  },
+  "upload_100mib_content_length": {
+   "content_type": "image/jpeg",
+   "description": "100 MiB multipart upload (zero bytes) with Content-Length",
+   "filename": "zeros.jpg",
+   "input_bytes": 104857600,
+   "sha256": null,
+   "transfer": "content-length"
+  }
+ },
+ "elapsed": "client side, time.perf_counter_ns from the first byte sent to the response body read; no Expect: 100-continue",
+ "event_loop": "uvloop",
+ "measurements": [
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 301954290,
+   "peak_after_bytes": 195887104,
+   "peak_before_bytes": 89481216,
+   "peak_growth_bytes": 106405888,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 1,
+   "sent_bytes": 104857905,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 1015395,
+   "peak_after_bytes": 90566656,
+   "peak_before_bytes": 90267648,
+   "peak_growth_bytes": 299008,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 1,
+   "sent_bytes": 1966358,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 56410108,
+   "peak_after_bytes": 92450816,
+   "peak_before_bytes": 89862144,
+   "peak_growth_bytes": 2588672,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 1,
+   "sent_bytes": 8783306,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 413171709,
+   "peak_after_bytes": 195919872,
+   "peak_before_bytes": 89862144,
+   "peak_growth_bytes": 106057728,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 1,
+   "sent_bytes": 104872323,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 1960907915,
+   "peak_after_bytes": 954404864,
+   "peak_before_bytes": 89653248,
+   "peak_growth_bytes": 864751616,
+   "response": {
+    "blur_score": 0.0,
+    "brightness": 128.0,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 143,
+   "response_sha256": "3ea0fca24beb3ceefff528a5981f9d939104b1909b175859c70b894fbea0e843",
+   "run": 1,
+   "sent_bytes": 168757,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 6214717,
+   "peak_after_bytes": 91037696,
+   "peak_before_bytes": 90107904,
+   "peak_growth_bytes": 929792,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 1,
+   "sent_bytes": 168757,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 5085807,
+   "peak_after_bytes": 91447296,
+   "peak_before_bytes": 90087424,
+   "peak_growth_bytes": 1359872,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 1,
+   "sent_bytes": 1453,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 6032329,
+   "peak_after_bytes": 95342592,
+   "peak_before_bytes": 89378816,
+   "peak_growth_bytes": 5963776,
+   "response": {
+    "blur_score": 600.7279663085938,
+    "brightness": 97.67216491699219,
+    "height": 256,
+    "is_ok": true,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 256
+   },
+   "response_bytes": 166,
+   "response_sha256": "3492043585a6fbf8ae10cc5f7bf8b16881689b283a88574a65b8f352a3c5dbc0",
+   "run": 1,
+   "sent_bytes": 1453,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 485877554,
+   "peak_after_bytes": 395501568,
+   "peak_before_bytes": 89726976,
+   "peak_growth_bytes": 305774592,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 1,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 487843801,
+   "peak_after_bytes": 395759616,
+   "peak_before_bytes": 89894912,
+   "peak_growth_bytes": 305864704,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 1,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 2024818,
+   "peak_after_bytes": 90255360,
+   "peak_before_bytes": 89960448,
+   "peak_growth_bytes": 294912,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 2,
+   "sent_bytes": 1966358,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 276906366,
+   "peak_after_bytes": 195936256,
+   "peak_before_bytes": 89587712,
+   "peak_growth_bytes": 106348544,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 2,
+   "sent_bytes": 104857905,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 285826658,
+   "peak_after_bytes": 195735552,
+   "peak_before_bytes": 89587712,
+   "peak_growth_bytes": 106147840,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 2,
+   "sent_bytes": 104872323,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 16535857,
+   "peak_after_bytes": 92590080,
+   "peak_before_bytes": 89980928,
+   "peak_growth_bytes": 2609152,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 2,
+   "sent_bytes": 8783306,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 5270391,
+   "peak_after_bytes": 90935296,
+   "peak_before_bytes": 89997312,
+   "peak_growth_bytes": 937984,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 2,
+   "sent_bytes": 168757,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 1909669574,
+   "peak_after_bytes": 954638336,
+   "peak_before_bytes": 89661440,
+   "peak_growth_bytes": 864976896,
+   "response": {
+    "blur_score": 0.0,
+    "brightness": 128.0,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 143,
+   "response_sha256": "3ea0fca24beb3ceefff528a5981f9d939104b1909b175859c70b894fbea0e843",
+   "run": 2,
+   "sent_bytes": 168757,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 8170849,
+   "peak_after_bytes": 95449088,
+   "peak_before_bytes": 89661440,
+   "peak_growth_bytes": 5787648,
+   "response": {
+    "blur_score": 600.7279663085938,
+    "brightness": 97.67216491699219,
+    "height": 256,
+    "is_ok": true,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 256
+   },
+   "response_bytes": 166,
+   "response_sha256": "3492043585a6fbf8ae10cc5f7bf8b16881689b283a88574a65b8f352a3c5dbc0",
+   "run": 2,
+   "sent_bytes": 1453,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 14483019,
+   "peak_after_bytes": 91381760,
+   "peak_before_bytes": 90042368,
+   "peak_growth_bytes": 1339392,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 2,
+   "sent_bytes": 1453,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 491573490,
+   "peak_after_bytes": 396091392,
+   "peak_before_bytes": 90300416,
+   "peak_growth_bytes": 305790976,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 2,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 514800841,
+   "peak_after_bytes": 395149312,
+   "peak_before_bytes": 89595904,
+   "peak_growth_bytes": 305553408,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 2,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 315152329,
+   "peak_after_bytes": 195952640,
+   "peak_before_bytes": 89567232,
+   "peak_growth_bytes": 106385408,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 3,
+   "sent_bytes": 104857905,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 1110330,
+   "peak_after_bytes": 90419200,
+   "peak_before_bytes": 90124288,
+   "peak_growth_bytes": 294912,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 3,
+   "sent_bytes": 1966358,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 22614445,
+   "peak_after_bytes": 92569600,
+   "peak_before_bytes": 89907200,
+   "peak_growth_bytes": 2662400,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 3,
+   "sent_bytes": 9635391,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 281662669,
+   "peak_after_bytes": 195575808,
+   "peak_before_bytes": 89448448,
+   "peak_growth_bytes": 106127360,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 3,
+   "sent_bytes": 104872323,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 1938565896,
+   "peak_after_bytes": 954400768,
+   "peak_before_bytes": 89354240,
+   "peak_growth_bytes": 865046528,
+   "response": {
+    "blur_score": 0.0,
+    "brightness": 128.0,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 143,
+   "response_sha256": "3ea0fca24beb3ceefff528a5981f9d939104b1909b175859c70b894fbea0e843",
+   "run": 3,
+   "sent_bytes": 168757,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 6861119,
+   "peak_after_bytes": 90984448,
+   "peak_before_bytes": 90050560,
+   "peak_growth_bytes": 933888,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 3,
+   "sent_bytes": 168757,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 14839275,
+   "peak_after_bytes": 91238400,
+   "peak_before_bytes": 89903104,
+   "peak_growth_bytes": 1335296,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 3,
+   "sent_bytes": 1453,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 7494338,
+   "peak_after_bytes": 95289344,
+   "peak_before_bytes": 89509888,
+   "peak_growth_bytes": 5779456,
+   "response": {
+    "blur_score": 600.7279663085938,
+    "brightness": 97.67216491699219,
+    "height": 256,
+    "is_ok": true,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 256
+   },
+   "response_bytes": 166,
+   "response_sha256": "3492043585a6fbf8ae10cc5f7bf8b16881689b283a88574a65b8f352a3c5dbc0",
+   "run": 3,
+   "sent_bytes": 1453,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 464062628,
+   "peak_after_bytes": 395329536,
+   "peak_before_bytes": 89620480,
+   "peak_growth_bytes": 305709056,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 3,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 492133794,
+   "peak_after_bytes": 395837440,
+   "peak_before_bytes": 90050560,
+   "peak_growth_bytes": 305786880,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 3,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 735933,
+   "peak_after_bytes": 90386432,
+   "peak_before_bytes": 90091520,
+   "peak_growth_bytes": 294912,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 4,
+   "sent_bytes": 1966358,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 302250493,
+   "peak_after_bytes": 195829760,
+   "peak_before_bytes": 89702400,
+   "peak_growth_bytes": 106127360,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 4,
+   "sent_bytes": 104857905,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 264181403,
+   "peak_after_bytes": 195817472,
+   "peak_before_bytes": 89739264,
+   "peak_growth_bytes": 106078208,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 4,
+   "sent_bytes": 104872323,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 37848632,
+   "peak_after_bytes": 92545024,
+   "peak_before_bytes": 90099712,
+   "peak_growth_bytes": 2445312,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 4,
+   "sent_bytes": 10028661,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 15937738,
+   "peak_after_bytes": 91074560,
+   "peak_before_bytes": 90079232,
+   "peak_growth_bytes": 995328,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 4,
+   "sent_bytes": 168757,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 2529217991,
+   "peak_after_bytes": 954372096,
+   "peak_before_bytes": 89456640,
+   "peak_growth_bytes": 864915456,
+   "response": {
+    "blur_score": 0.0,
+    "brightness": 128.0,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 143,
+   "response_sha256": "3ea0fca24beb3ceefff528a5981f9d939104b1909b175859c70b894fbea0e843",
+   "run": 4,
+   "sent_bytes": 168757,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 17660443,
+   "peak_after_bytes": 95485952,
+   "peak_before_bytes": 89530368,
+   "peak_growth_bytes": 5955584,
+   "response": {
+    "blur_score": 600.7279663085938,
+    "brightness": 97.67216491699219,
+    "height": 256,
+    "is_ok": true,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 256
+   },
+   "response_bytes": 166,
+   "response_sha256": "3492043585a6fbf8ae10cc5f7bf8b16881689b283a88574a65b8f352a3c5dbc0",
+   "run": 4,
+   "sent_bytes": 1453,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 4950016,
+   "peak_after_bytes": 91402240,
+   "peak_before_bytes": 90034176,
+   "peak_growth_bytes": 1368064,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 4,
+   "sent_bytes": 1453,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 515377738,
+   "peak_after_bytes": 395927552,
+   "peak_before_bytes": 90136576,
+   "peak_growth_bytes": 305790976,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 4,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 466693387,
+   "peak_after_bytes": 395247616,
+   "peak_before_bytes": 89542656,
+   "peak_growth_bytes": 305704960,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 4,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 249850201,
+   "peak_after_bytes": 195203072,
+   "peak_before_bytes": 89452544,
+   "peak_growth_bytes": 105750528,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 5,
+   "sent_bytes": 104857905,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "upload_100mib_content_length",
+   "elapsed_ns": 2317992,
+   "peak_after_bytes": 90329088,
+   "peak_before_bytes": 90034176,
+   "peak_growth_bytes": 294912,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 5,
+   "sent_bytes": 459030,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 15633857,
+   "peak_after_bytes": 92176384,
+   "peak_before_bytes": 90009600,
+   "peak_growth_bytes": 2166784,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 5,
+   "sent_bytes": 11142926,
+   "status": 413,
+   "stopped_early": "response arrived before the upload finished",
+   "variant": "after"
+  },
+  {
+   "case": "upload_100mib_chunked",
+   "elapsed_ns": 376458307,
+   "peak_after_bytes": 195768320,
+   "peak_before_bytes": 89632768,
+   "peak_growth_bytes": 106135552,
+   "response": {
+    "detail": "File too large"
+   },
+   "response_bytes": 27,
+   "response_sha256": "b0e15ecc5d0e02c19158dcc92c62f49683b700142520114d11a8ad2b72803238",
+   "run": 5,
+   "sent_bytes": 104872323,
+   "status": 413,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 1886967052,
+   "peak_after_bytes": 954646528,
+   "peak_before_bytes": 89534464,
+   "peak_growth_bytes": 865112064,
+   "response": {
+    "blur_score": 0.0,
+    "brightness": 128.0,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 143,
+   "response_sha256": "3ea0fca24beb3ceefff528a5981f9d939104b1909b175859c70b894fbea0e843",
+   "run": 5,
+   "sent_bytes": 168757,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "png_bomb_12000x12000",
+   "elapsed_ns": 6399871,
+   "peak_after_bytes": 90750976,
+   "peak_before_bytes": 89817088,
+   "peak_growth_bytes": 933888,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 5,
+   "sent_bytes": 168757,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 6263548,
+   "peak_after_bytes": 91312128,
+   "peak_before_bytes": 89972736,
+   "peak_growth_bytes": 1339392,
+   "response": {
+    "detail": "Invalid image data"
+   },
+   "response_bytes": 31,
+   "response_sha256": "6255374d46647135baca76a2f1c6fc080b5c98fc32ad85daccfb5645914511ae",
+   "run": 5,
+   "sent_bytes": 1453,
+   "status": 400,
+   "stopped_early": null,
+   "variant": "after"
+  },
+  {
+   "case": "truncated_sharp_small",
+   "elapsed_ns": 18293700,
+   "peak_after_bytes": 95358976,
+   "peak_before_bytes": 89403392,
+   "peak_growth_bytes": 5955584,
+   "response": {
+    "blur_score": 600.7279663085938,
+    "brightness": 97.67216491699219,
+    "height": 256,
+    "is_ok": true,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 256
+   },
+   "response_bytes": 166,
+   "response_sha256": "3492043585a6fbf8ae10cc5f7bf8b16881689b283a88574a65b8f352a3c5dbc0",
+   "run": 5,
+   "sent_bytes": 1453,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 457841748,
+   "peak_after_bytes": 395403264,
+   "peak_before_bytes": 89698304,
+   "peak_growth_bytes": 305704960,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 5,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "before"
+  },
+  {
+   "case": "jpeg_5000x5000",
+   "elapsed_ns": 469396983,
+   "peak_after_bytes": 395866112,
+   "peak_before_bytes": 90075136,
+   "peak_growth_bytes": 305790976,
+   "response": {
+    "blur_score": 55.102205077022546,
+    "brightness": 127.907446484375,
+    "height": 1600,
+    "is_ok": false,
+    "thresholds": {
+     "blur_min": 140.0,
+     "bright_max": 235,
+     "bright_min": 20
+    },
+    "width": 1600
+   },
+   "response_bytes": 169,
+   "response_sha256": "e9af2c3a0f51b1cd9574ed369eea93ba87b71340c0196d910e8c0b81f70a1d19",
+   "run": 5,
+   "sent_bytes": 3231406,
+   "status": 200,
+   "stopped_early": null,
+   "variant": "after"
+  }
+ ],
+ "memory_source": "VmHWM from /proc/<pid>/status",
+ "runs": 5,
+ "schema": "iqg-limits/1",
+ "server": "fresh single-worker uvicorn per run, case and variant; 127.0.0.1; default settings; one GET /health before the request",
+ "uvicorn_loop": "auto",
+ "variants": {
+  "after": "this tree",
+  "before": "the baseline checkout (--baseline / --baseline-ref)"
+ }
+}

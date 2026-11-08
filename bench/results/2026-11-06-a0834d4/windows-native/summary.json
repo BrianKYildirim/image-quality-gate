@@ -1,0 +1,2449 @@
+{
+ "environment_id": "windows-native",
+ "generated_from": [
+  "raw/limits.json",
+  "raw/session-01/blurry_small.jpg/baseline_quality.json",
+  "raw/session-01/blurry_small.jpg/current_diagnostics.json",
+  "raw/session-01/blurry_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-01/blurry_small.jpg/current_quality.json",
+  "raw/session-01/photo_1600x1200.jpg/baseline_quality.json",
+  "raw/session-01/photo_1600x1200.jpg/current_diagnostics.json",
+  "raw/session-01/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+  "raw/session-01/photo_1600x1200.jpg/current_quality.json",
+  "raw/session-01/photo_4032x3024_exif6.jpg/baseline_quality.json",
+  "raw/session-01/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+  "raw/session-01/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+  "raw/session-01/photo_4032x3024_exif6.jpg/current_quality.json",
+  "raw/session-01/pipeline/blurry_small.jpg.json",
+  "raw/session-01/pipeline/photo_1600x1200.jpg.json",
+  "raw/session-01/pipeline/photo_4032x3024_exif6.jpg.json",
+  "raw/session-01/pipeline/sharp_small.jpg.json",
+  "raw/session-01/sharp_small.jpg/baseline_quality.json",
+  "raw/session-01/sharp_small.jpg/current_diagnostics.json",
+  "raw/session-01/sharp_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-01/sharp_small.jpg/current_quality.json",
+  "raw/session-02/blurry_small.jpg/baseline_quality.json",
+  "raw/session-02/blurry_small.jpg/current_diagnostics.json",
+  "raw/session-02/blurry_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-02/blurry_small.jpg/current_quality.json",
+  "raw/session-02/photo_1600x1200.jpg/baseline_quality.json",
+  "raw/session-02/photo_1600x1200.jpg/current_diagnostics.json",
+  "raw/session-02/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+  "raw/session-02/photo_1600x1200.jpg/current_quality.json",
+  "raw/session-02/photo_4032x3024_exif6.jpg/baseline_quality.json",
+  "raw/session-02/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+  "raw/session-02/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+  "raw/session-02/photo_4032x3024_exif6.jpg/current_quality.json",
+  "raw/session-02/pipeline/blurry_small.jpg.json",
+  "raw/session-02/pipeline/photo_1600x1200.jpg.json",
+  "raw/session-02/pipeline/photo_4032x3024_exif6.jpg.json",
+  "raw/session-02/pipeline/sharp_small.jpg.json",
+  "raw/session-02/sharp_small.jpg/baseline_quality.json",
+  "raw/session-02/sharp_small.jpg/current_diagnostics.json",
+  "raw/session-02/sharp_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-02/sharp_small.jpg/current_quality.json",
+  "raw/session-03/blurry_small.jpg/baseline_quality.json",
+  "raw/session-03/blurry_small.jpg/current_diagnostics.json",
+  "raw/session-03/blurry_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-03/blurry_small.jpg/current_quality.json",
+  "raw/session-03/photo_1600x1200.jpg/baseline_quality.json",
+  "raw/session-03/photo_1600x1200.jpg/current_diagnostics.json",
+  "raw/session-03/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+  "raw/session-03/photo_1600x1200.jpg/current_quality.json",
+  "raw/session-03/photo_4032x3024_exif6.jpg/baseline_quality.json",
+  "raw/session-03/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+  "raw/session-03/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+  "raw/session-03/photo_4032x3024_exif6.jpg/current_quality.json",
+  "raw/session-03/pipeline/blurry_small.jpg.json",
+  "raw/session-03/pipeline/photo_1600x1200.jpg.json",
+  "raw/session-03/pipeline/photo_4032x3024_exif6.jpg.json",
+  "raw/session-03/pipeline/sharp_small.jpg.json",
+  "raw/session-03/sharp_small.jpg/baseline_quality.json",
+  "raw/session-03/sharp_small.jpg/current_diagnostics.json",
+  "raw/session-03/sharp_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-03/sharp_small.jpg/current_quality.json",
+  "raw/session-04/blurry_small.jpg/baseline_quality.json",
+  "raw/session-04/blurry_small.jpg/current_diagnostics.json",
+  "raw/session-04/blurry_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-04/blurry_small.jpg/current_quality.json",
+  "raw/session-04/photo_1600x1200.jpg/baseline_quality.json",
+  "raw/session-04/photo_1600x1200.jpg/current_diagnostics.json",
+  "raw/session-04/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+  "raw/session-04/photo_1600x1200.jpg/current_quality.json",
+  "raw/session-04/photo_4032x3024_exif6.jpg/baseline_quality.json",
+  "raw/session-04/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+  "raw/session-04/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+  "raw/session-04/photo_4032x3024_exif6.jpg/current_quality.json",
+  "raw/session-04/pipeline/blurry_small.jpg.json",
+  "raw/session-04/pipeline/photo_1600x1200.jpg.json",
+  "raw/session-04/pipeline/photo_4032x3024_exif6.jpg.json",
+  "raw/session-04/pipeline/sharp_small.jpg.json",
+  "raw/session-04/sharp_small.jpg/baseline_quality.json",
+  "raw/session-04/sharp_small.jpg/current_diagnostics.json",
+  "raw/session-04/sharp_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-04/sharp_small.jpg/current_quality.json",
+  "raw/session-05/blurry_small.jpg/baseline_quality.json",
+  "raw/session-05/blurry_small.jpg/current_diagnostics.json",
+  "raw/session-05/blurry_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-05/blurry_small.jpg/current_quality.json",
+  "raw/session-05/photo_1600x1200.jpg/baseline_quality.json",
+  "raw/session-05/photo_1600x1200.jpg/current_diagnostics.json",
+  "raw/session-05/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+  "raw/session-05/photo_1600x1200.jpg/current_quality.json",
+  "raw/session-05/photo_4032x3024_exif6.jpg/baseline_quality.json",
+  "raw/session-05/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+  "raw/session-05/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+  "raw/session-05/photo_4032x3024_exif6.jpg/current_quality.json",
+  "raw/session-05/pipeline/blurry_small.jpg.json",
+  "raw/session-05/pipeline/photo_1600x1200.jpg.json",
+  "raw/session-05/pipeline/photo_4032x3024_exif6.jpg.json",
+  "raw/session-05/pipeline/sharp_small.jpg.json",
+  "raw/session-05/sharp_small.jpg/baseline_quality.json",
+  "raw/session-05/sharp_small.jpg/current_diagnostics.json",
+  "raw/session-05/sharp_small.jpg/current_diagnostics_hist64.json",
+  "raw/session-05/sharp_small.jpg/current_quality.json",
+  "raw/tests.txt"
+ ],
+ "http": {
+  "blurry_small.jpg": {
+   "baseline_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 2.48015,
+      "measure": "per_op_latency",
+      "median": 2.3829499999999997,
+      "min": 2.1952,
+      "n": 5,
+      "p25": 2.3323,
+      "p75": 2.4320500000000003,
+      "percentile": 50,
+      "pooled": 2.37175,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       2.4320500000000003,
+       2.48015,
+       2.3829499999999997,
+       2.1952,
+       2.3323
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 5.262375,
+      "measure": "per_op_latency",
+      "median": 3.359325,
+      "min": 2.526495,
+      "n": 5,
+      "p25": 2.7014000000000005,
+      "p75": 3.9391149999999997,
+      "percentile": 95,
+      "pooled": 3.348345,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       3.9391149999999997,
+       3.359325,
+       5.262375,
+       2.526495,
+       2.7014000000000005
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 6.133299999999999,
+      "measure": "per_op_latency",
+      "median": 5.3385299999999996,
+      "min": 2.959462,
+      "n": 5,
+      "p25": 2.983465,
+      "p75": 6.107645,
+      "percentile": 99,
+      "pooled": 6.00269,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       5.3385299999999996,
+       6.107645,
+       6.133299999999999,
+       2.959462,
+       2.983465
+      ]
+     }
+    },
+    "path": "/quality"
+   },
+   "bytes": 3589,
+   "current_diagnostics": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      1.3752,
+      1.242,
+      1.3333499999999998,
+      1.35275,
+      1.3202500000000001
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 2.9459000000000004,
+      "measure": "per_op_latency",
+      "median": 2.8592,
+      "min": 2.7305,
+      "n": 5,
+      "p25": 2.77805,
+      "p75": 2.865,
+      "percentile": 50,
+      "pooled": 2.85505,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       2.9459000000000004,
+       2.7305,
+       2.8592,
+       2.865,
+       2.77805
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 6.2158500000000005,
+      "measure": "per_op_latency",
+      "median": 3.7954199999999996,
+      "min": 3.197815,
+      "n": 5,
+      "p25": 3.2243550000000005,
+      "p75": 4.410035,
+      "percentile": 95,
+      "pooled": 3.80466,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       4.410035,
+       3.7954199999999996,
+       6.2158500000000005,
+       3.2243550000000005,
+       3.197815
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 7.549568000000001,
+      "measure": "per_op_latency",
+      "median": 6.408570999999999,
+      "min": 3.430015,
+      "n": 5,
+      "p25": 3.475034,
+      "p75": 6.671323,
+      "percentile": 99,
+      "pooled": 6.964957000000001,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       6.408570999999999,
+       6.671323,
+       7.549568000000001,
+       3.430015,
+       3.475034
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics - baseline_quality request time, both sent in the same shuffled round",
+     "max": 0.6776,
+     "measure": "request_wall_time",
+     "median": 0.47535,
+     "min": 0.25795,
+     "n": 5,
+     "p25": 0.42579999999999996,
+     "p75": 0.53435,
+     "pooled_median": 0.4856,
+     "pooled_p25": 0.27002499999999996,
+     "pooled_p75": 0.686825,
+     "reference": "baseline_quality",
+     "samples": 1500,
+     "unit": "ms",
+     "values": [
+      0.53435,
+      0.25795,
+      0.47535,
+      0.6776,
+      0.42579999999999996
+     ]
+    },
+    "path": "/quality/diagnostics"
+   },
+   "current_diagnostics_hist64": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      3.1519500000000003,
+      2.36515,
+      2.6546000000000003,
+      2.36095,
+      2.3653
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 4.8232,
+      "measure": "per_op_latency",
+      "median": 3.8243,
+      "min": 3.80235,
+      "n": 5,
+      "p25": 3.81475,
+      "p75": 4.2132000000000005,
+      "percentile": 50,
+      "pooled": 4.01075,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       4.8232,
+       3.81475,
+       4.2132000000000005,
+       3.8243,
+       3.80235
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 7.953365,
+      "measure": "per_op_latency",
+      "median": 5.300889999999999,
+      "min": 4.2261500000000005,
+      "n": 5,
+      "p25": 4.336704999999999,
+      "p75": 7.765125,
+      "percentile": 95,
+      "pooled": 6.192995000000001,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       7.765125,
+       5.300889999999999,
+       7.953365,
+       4.2261500000000005,
+       4.336704999999999
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 11.813274000000002,
+      "measure": "per_op_latency",
+      "median": 8.401499000000001,
+      "min": 4.995177000000001,
+      "n": 5,
+      "p25": 5.661421000000001,
+      "p75": 11.402262,
+      "percentile": 99,
+      "pooled": 10.333059,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       11.813274000000002,
+       8.401499000000001,
+       11.402262,
+       5.661421000000001,
+       4.995177000000001
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics_hist64 - baseline_quality request time, both sent in the same shuffled round",
+     "max": 2.39335,
+     "measure": "request_wall_time",
+     "median": 1.62085,
+     "min": 1.3609499999999999,
+     "n": 5,
+     "p25": 1.46505,
+     "p75": 1.84795,
+     "pooled_median": 1.6825,
+     "pooled_p25": 1.421325,
+     "pooled_p75": 2.072425,
+     "reference": "baseline_quality",
+     "samples": 1500,
+     "unit": "ms",
+     "values": [
+      2.39335,
+      1.3609499999999999,
+      1.84795,
+      1.62085,
+      1.46505
+     ]
+    },
+    "path": "/quality/diagnostics?laplacian_histogram_bins=64"
+   },
+   "current_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 2.5004500000000003,
+      "measure": "per_op_latency",
+      "median": 2.45345,
+      "min": 2.0843000000000003,
+      "n": 5,
+      "p25": 2.4034999999999997,
+      "p75": 2.46315,
+      "percentile": 50,
+      "pooled": 2.4072,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       2.45345,
+       2.4034999999999997,
+       2.46315,
+       2.0843000000000003,
+       2.5004500000000003
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 4.633765,
+      "measure": "per_op_latency",
+      "median": 3.3285449999999996,
+      "min": 2.3788500000000004,
+      "n": 5,
+      "p25": 2.8177250000000003,
+      "p75": 3.7895149999999997,
+      "percentile": 95,
+      "pooled": 3.13739,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       3.7895149999999997,
+       3.3285449999999996,
+       4.633765,
+       2.3788500000000004,
+       2.8177250000000003
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 6.315393,
+      "measure": "per_op_latency",
+      "median": 5.178243,
+      "min": 2.762304,
+      "n": 5,
+      "p25": 3.049662,
+      "p75": 5.4048359999999995,
+      "percentile": 99,
+      "pooled": 5.652702,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       5.4048359999999995,
+       5.178243,
+       6.315393,
+       2.762304,
+       3.049662
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "uninstrumented",
+     "definition": "per round: current_quality - baseline_quality request time, both sent in the same shuffled round",
+     "max": 0.158,
+     "measure": "request_wall_time",
+     "median": 0.00435,
+     "min": -0.11545,
+     "n": 5,
+     "p25": -0.08405,
+     "p75": 0.0676,
+     "pooled_median": -0.0035,
+     "pooled_p25": -0.16190000000000002,
+     "pooled_p75": 0.1856,
+     "reference": "baseline_quality",
+     "samples": 1500,
+     "unit": "ms",
+     "values": [
+      0.00435,
+      -0.08405,
+      0.0676,
+      -0.11545,
+      0.158
+     ]
+    },
+    "path": "/quality"
+   },
+   "quality_body_identical": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  "photo_1600x1200.jpg": {
+   "baseline_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 34.94205,
+      "measure": "per_op_latency",
+      "median": 34.158100000000005,
+      "min": 33.758900000000004,
+      "n": 5,
+      "p25": 34.13875,
+      "p75": 34.3867,
+      "percentile": 50,
+      "pooled": 34.34185,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       33.758900000000004,
+       34.94205,
+       34.3867,
+       34.158100000000005,
+       34.13875
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 47.6465,
+      "measure": "per_op_latency",
+      "median": 43.848774999999996,
+      "min": 37.24292,
+      "n": 5,
+      "p25": 41.013450000000006,
+      "p75": 45.42585999999999,
+      "percentile": 95,
+      "pooled": 43.815994999999994,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       37.24292,
+       47.6465,
+       41.013450000000006,
+       43.848774999999996,
+       45.42585999999999
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 64.94582,
+      "measure": "per_op_latency",
+      "median": 58.709156,
+      "min": 51.745215,
+      "n": 5,
+      "p25": 55.225758000000006,
+      "p75": 64.25136499999999,
+      "percentile": 99,
+      "pooled": 63.236184,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       51.745215,
+       58.709156,
+       55.225758000000006,
+       64.94582,
+       64.25136499999999
+      ]
+     }
+    },
+    "path": "/quality"
+   },
+   "bytes": 278661,
+   "current_diagnostics": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      41.9715,
+      42.6484,
+      42.8239,
+      42.2722,
+      42.513400000000004
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 46.7376,
+      "measure": "per_op_latency",
+      "median": 46.7204,
+      "min": 46.12105,
+      "n": 5,
+      "p25": 46.205349999999996,
+      "p75": 46.73075000000001,
+      "percentile": 50,
+      "pooled": 46.465,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       46.12105,
+       46.73075000000001,
+       46.7376,
+       46.205349999999996,
+       46.7204
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 68.14846,
+      "measure": "per_op_latency",
+      "median": 53.140405,
+      "min": 50.669535,
+      "n": 5,
+      "p25": 52.21455,
+      "p75": 54.61902,
+      "percentile": 95,
+      "pooled": 54.704395,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       50.669535,
+       68.14846,
+       53.140405,
+       52.21455,
+       54.61902
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 79.83959800000001,
+      "measure": "per_op_latency",
+      "median": 67.06426900000001,
+      "min": 56.10868000000001,
+      "n": 5,
+      "p25": 60.016038,
+      "p75": 69.655501,
+      "percentile": 99,
+      "pooled": 70.86185,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       69.655501,
+       79.83959800000001,
+       60.016038,
+       56.10868000000001,
+       67.06426900000001
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics - baseline_quality request time, both sent in the same shuffled round",
+     "max": 12.29835,
+     "measure": "request_wall_time",
+     "median": 12.18545,
+     "min": 12.1133,
+     "n": 5,
+     "p25": 12.125250000000001,
+     "p75": 12.22605,
+     "pooled_median": 12.22605,
+     "pooled_p25": 10.7402,
+     "pooled_p75": 13.878775000000001,
+     "reference": "baseline_quality",
+     "samples": 300,
+     "unit": "ms",
+     "values": [
+      12.125250000000001,
+      12.1133,
+      12.29835,
+      12.18545,
+      12.22605
+     ]
+    },
+    "path": "/quality/diagnostics"
+   },
+   "current_diagnostics_hist64": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      59.72495,
+      60.4591,
+      59.81285,
+      59.87435,
+      60.01515
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 64.29254999999999,
+      "measure": "per_op_latency",
+      "median": 63.87665,
+      "min": 63.737049999999996,
+      "n": 5,
+      "p25": 63.81834999999999,
+      "p75": 63.91440000000001,
+      "percentile": 50,
+      "pooled": 63.87855,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       63.737049999999996,
+       64.29254999999999,
+       63.81834999999999,
+       63.91440000000001,
+       63.87665
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 82.12863999999999,
+      "measure": "per_op_latency",
+      "median": 79.31577999999999,
+      "min": 72.15555499999999,
+      "n": 5,
+      "p25": 75.77079,
+      "p75": 81.19035,
+      "percentile": 95,
+      "pooled": 79.30969499999999,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       72.15555499999999,
+       82.12863999999999,
+       75.77079,
+       81.19035,
+       79.31577999999999
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 105.23222299999999,
+      "measure": "per_op_latency",
+      "median": 93.44604200000002,
+      "min": 77.339592,
+      "n": 5,
+      "p25": 92.08586,
+      "p75": 98.268563,
+      "percentile": 99,
+      "pooled": 103.98410300000002,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       77.339592,
+       105.23222299999999,
+       93.44604200000002,
+       98.268563,
+       92.08586
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics_hist64 - baseline_quality request time, both sent in the same shuffled round",
+     "max": 30.10255,
+     "measure": "request_wall_time",
+     "median": 29.4804,
+     "min": 29.4667,
+     "n": 5,
+     "p25": 29.47,
+     "p75": 29.7496,
+     "pooled_median": 29.63635,
+     "pooled_p25": 27.8347,
+     "pooled_p75": 32.03475,
+     "reference": "baseline_quality",
+     "samples": 300,
+     "unit": "ms",
+     "values": [
+      29.7496,
+      29.47,
+      29.4667,
+      30.10255,
+      29.4804
+     ]
+    },
+    "path": "/quality/diagnostics?laplacian_histogram_bins=64"
+   },
+   "current_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 34.30165,
+      "measure": "per_op_latency",
+      "median": 34.02375,
+      "min": 33.97255,
+      "n": 5,
+      "p25": 34.005199999999995,
+      "p75": 34.0652,
+      "percentile": 50,
+      "pooled": 34.06975,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       34.30165,
+       33.97255,
+       34.02375,
+       34.0652,
+       34.005199999999995
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 46.527155,
+      "measure": "per_op_latency",
+      "median": 39.934675,
+      "min": 39.752555,
+      "n": 5,
+      "p25": 39.793935000000005,
+      "p75": 44.168245,
+      "percentile": 95,
+      "pooled": 42.19261,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       46.527155,
+       44.168245,
+       39.793935000000005,
+       39.934675,
+       39.752555
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 72.32442,
+      "measure": "per_op_latency",
+      "median": 56.005089000000005,
+      "min": 41.998287,
+      "n": 5,
+      "p25": 53.340295999999995,
+      "p75": 69.129856,
+      "percentile": 99,
+      "pooled": 66.305472,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       72.32442,
+       69.129856,
+       53.340295999999995,
+       56.005089000000005,
+       41.998287
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "uninstrumented",
+     "definition": "per round: current_quality - baseline_quality request time, both sent in the same shuffled round",
+     "max": 0.3021,
+     "measure": "request_wall_time",
+     "median": -0.35155000000000003,
+     "min": -0.6565,
+     "n": 5,
+     "p25": -0.43320000000000003,
+     "p75": -0.1812,
+     "pooled_median": -0.2128,
+     "pooled_p25": -2.091875,
+     "pooled_p75": 1.473225,
+     "reference": "baseline_quality",
+     "samples": 300,
+     "unit": "ms",
+     "values": [
+      0.3021,
+      -0.6565,
+      -0.43320000000000003,
+      -0.1812,
+      -0.35155000000000003
+     ]
+    },
+    "path": "/quality"
+   },
+   "quality_body_identical": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  "photo_4032x3024_exif6.jpg": {
+   "baseline_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 230.62615000000002,
+      "measure": "per_op_latency",
+      "median": 228.9459,
+      "min": 226.52265,
+      "n": 5,
+      "p25": 228.69584999999998,
+      "p75": 228.9514,
+      "percentile": 50,
+      "pooled": 228.31165000000001,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       226.52265,
+       228.9459,
+       228.9514,
+       230.62615000000002,
+       228.69584999999998
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 249.492605,
+      "measure": "per_op_latency",
+      "median": 242.93412,
+      "min": 235.12001500000002,
+      "n": 5,
+      "p25": 242.57136500000001,
+      "p75": 248.23837500000002,
+      "percentile": 95,
+      "pooled": 245.737995,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       235.12001500000002,
+       242.93412,
+       249.492605,
+       248.23837500000002,
+       242.57136500000001
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 257.870744,
+      "measure": "per_op_latency",
+      "median": 253.51378400000002,
+      "min": 242.018776,
+      "n": 5,
+      "p25": 246.68875699999998,
+      "p75": 255.85217400000002,
+      "percentile": 99,
+      "pooled": 253.20082399999998,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       242.018776,
+       257.870744,
+       255.85217400000002,
+       253.51378400000002,
+       246.68875699999998
+      ]
+     }
+    },
+    "path": "/quality"
+   },
+   "bytes": 1608635,
+   "current_diagnostics": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      228.37515,
+      230.39960000000002,
+      230.3889,
+      228.70105,
+      228.661
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 242.38334999999998,
+      "measure": "per_op_latency",
+      "median": 240.23445,
+      "min": 239.68490000000003,
+      "n": 5,
+      "p25": 239.99555,
+      "p75": 241.53349999999998,
+      "percentile": 50,
+      "pooled": 240.69684999999998,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       239.99555,
+       241.53349999999998,
+       242.38334999999998,
+       239.68490000000003,
+       240.23445
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 260.58477,
+      "measure": "per_op_latency",
+      "median": 258.721965,
+      "min": 253.11520499999997,
+      "n": 5,
+      "p25": 257.95149000000004,
+      "p75": 259.63731,
+      "percentile": 95,
+      "pooled": 258.638805,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       253.11520499999997,
+       259.63731,
+       260.58477,
+       257.95149000000004,
+       258.721965
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 275.64880600000004,
+      "measure": "per_op_latency",
+      "median": 266.07231,
+      "min": 256.53650700000003,
+      "n": 5,
+      "p25": 263.837157,
+      "p75": 271.26267399999995,
+      "percentile": 99,
+      "pooled": 268.106523,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       256.53650700000003,
+       263.837157,
+       271.26267399999995,
+       275.64880600000004,
+       266.07231
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics - baseline_quality request time, both sent in the same shuffled round",
+     "max": 14.84195,
+     "measure": "request_wall_time",
+     "median": 12.072,
+     "min": 10.525549999999999,
+     "n": 5,
+     "p25": 11.86975,
+     "p75": 12.919,
+     "pooled_median": 12.4056,
+     "pooled_p25": 5.912975,
+     "pooled_p75": 17.913025,
+     "reference": "baseline_quality",
+     "samples": 300,
+     "unit": "ms",
+     "values": [
+      14.84195,
+      11.86975,
+      12.919,
+      10.525549999999999,
+      12.072
+     ]
+    },
+    "path": "/quality/diagnostics"
+   },
+   "current_diagnostics_hist64": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      244.3713,
+      244.53300000000002,
+      246.0466,
+      249.35915,
+      243.82385
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 260.18444999999997,
+      "measure": "per_op_latency",
+      "median": 256.959,
+      "min": 255.09270000000004,
+      "n": 5,
+      "p25": 255.97514999999999,
+      "p75": 257.23965,
+      "percentile": 50,
+      "pooled": 257.45375,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       255.97514999999999,
+       256.959,
+       257.23965,
+       260.18444999999997,
+       255.09270000000004
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 273.1185,
+      "measure": "per_op_latency",
+      "median": 270.699035,
+      "min": 262.29420999999996,
+      "n": 5,
+      "p25": 270.10304,
+      "p75": 272.80753500000003,
+      "percentile": 95,
+      "pooled": 270.70491,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       262.29420999999996,
+       273.1185,
+       272.80753500000003,
+       270.699035,
+       270.10304
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 286.15067600000003,
+      "measure": "per_op_latency",
+      "median": 275.782681,
+      "min": 265.325821,
+      "n": 5,
+      "p25": 272.069427,
+      "p75": 279.61865700000004,
+      "percentile": 99,
+      "pooled": 280.062225,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       265.325821,
+       279.61865700000004,
+       286.15067600000003,
+       275.782681,
+       272.069427
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics_hist64 - baseline_quality request time, both sent in the same shuffled round",
+     "max": 29.954549999999998,
+     "measure": "request_wall_time",
+     "median": 27.3931,
+     "min": 26.5108,
+     "n": 5,
+     "p25": 27.25385,
+     "p75": 29.42025,
+     "pooled_median": 28.11225,
+     "pooled_p25": 22.754324999999998,
+     "pooled_p75": 33.990325000000006,
+     "reference": "baseline_quality",
+     "samples": 300,
+     "unit": "ms",
+     "values": [
+      29.42025,
+      27.25385,
+      27.3931,
+      29.954549999999998,
+      26.5108
+     ]
+    },
+    "path": "/quality/diagnostics?laplacian_histogram_bins=64"
+   },
+   "current_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 230.07785,
+      "measure": "per_op_latency",
+      "median": 229.6036,
+      "min": 224.9835,
+      "n": 5,
+      "p25": 226.78665,
+      "p75": 229.93669999999997,
+      "percentile": 50,
+      "pooled": 227.97504999999998,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       226.78665,
+       224.9835,
+       230.07785,
+       229.93669999999997,
+       229.6036
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 249.59776999999997,
+      "measure": "per_op_latency",
+      "median": 243.339185,
+      "min": 237.15675499999998,
+      "n": 5,
+      "p25": 242.47916,
+      "p75": 244.366755,
+      "percentile": 95,
+      "pooled": 244.073795,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       243.339185,
+       237.15675499999998,
+       242.47916,
+       244.366755,
+       249.59776999999997
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 258.313423,
+      "measure": "per_op_latency",
+      "median": 250.143381,
+      "min": 246.721348,
+      "n": 5,
+      "p25": 247.02181299999995,
+      "p75": 254.709535,
+      "percentile": 99,
+      "pooled": 254.28013499999997,
+      "samples": 300,
+      "unit": "ms",
+      "values": [
+       250.143381,
+       247.02181299999995,
+       246.721348,
+       258.313423,
+       254.709535
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "uninstrumented",
+     "definition": "per round: current_quality - baseline_quality request time, both sent in the same shuffled round",
+     "max": 1.1895,
+     "measure": "request_wall_time",
+     "median": -0.9974500000000001,
+     "min": -3.44185,
+     "n": 5,
+     "p25": -1.56945,
+     "p75": 0.41200000000000003,
+     "pooled_median": -1.0075,
+     "pooled_p25": -6.176925,
+     "pooled_p75": 4.780575,
+     "reference": "baseline_quality",
+     "samples": 300,
+     "unit": "ms",
+     "values": [
+      1.1895,
+      -3.44185,
+      -0.9974500000000001,
+      -1.56945,
+      0.41200000000000003
+     ]
+    },
+    "path": "/quality"
+   },
+   "quality_body_identical": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  "sharp_small.jpg": {
+   "baseline_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 2.48415,
+      "measure": "per_op_latency",
+      "median": 2.3215500000000002,
+      "min": 2.1784,
+      "n": 5,
+      "p25": 2.3127,
+      "p75": 2.331,
+      "percentile": 50,
+      "pooled": 2.31935,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       2.48415,
+       2.331,
+       2.3127,
+       2.1784,
+       2.3215500000000002
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 3.929085,
+      "measure": "per_op_latency",
+      "median": 2.78015,
+      "min": 2.5398,
+      "n": 5,
+      "p25": 2.709545,
+      "p75": 3.447695,
+      "percentile": 95,
+      "pooled": 3.255775,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       3.929085,
+       3.447695,
+       2.78015,
+       2.5398,
+       2.709545
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 6.135405,
+      "measure": "per_op_latency",
+      "median": 4.07175,
+      "min": 3.276832,
+      "n": 5,
+      "p25": 3.4811549999999998,
+      "p75": 5.871264,
+      "percentile": 99,
+      "pooled": 5.266907,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       6.135405,
+       5.871264,
+       4.07175,
+       3.276832,
+       3.4811549999999998
+      ]
+     }
+    },
+    "path": "/quality"
+   },
+   "bytes": 2294,
+   "current_diagnostics": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      1.3600500000000002,
+      1.1743999999999999,
+      1.30035,
+      1.3406500000000001,
+      1.17475
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 2.98715,
+      "measure": "per_op_latency",
+      "median": 2.8007999999999997,
+      "min": 2.6966499999999995,
+      "n": 5,
+      "p25": 2.7017499999999997,
+      "p75": 2.8598000000000003,
+      "percentile": 50,
+      "pooled": 2.8215,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       2.98715,
+       2.6966499999999995,
+       2.8007999999999997,
+       2.8598000000000003,
+       2.7017499999999997
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 5.469295000000001,
+      "measure": "per_op_latency",
+      "median": 3.372815,
+      "min": 3.16938,
+      "n": 5,
+      "p25": 3.254885,
+      "p75": 3.816765,
+      "percentile": 95,
+      "pooled": 3.81546,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       5.469295000000001,
+       3.816765,
+       3.254885,
+       3.16938,
+       3.372815
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 7.682205,
+      "measure": "per_op_latency",
+      "median": 5.612643,
+      "min": 3.670727,
+      "n": 5,
+      "p25": 3.933528,
+      "p75": 7.234291000000001,
+      "percentile": 99,
+      "pooled": 6.811241,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       7.682205,
+       7.234291000000001,
+       5.612643,
+       3.670727,
+       3.933528
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics - baseline_quality request time, both sent in the same shuffled round",
+     "max": 0.68925,
+     "measure": "request_wall_time",
+     "median": 0.47765,
+     "min": 0.32885,
+     "n": 5,
+     "p25": 0.37165000000000004,
+     "p75": 0.5084,
+     "pooled_median": 0.4915,
+     "pooled_p25": 0.27925,
+     "pooled_p75": 0.6860499999999999,
+     "reference": "baseline_quality",
+     "samples": 1500,
+     "unit": "ms",
+     "values": [
+      0.5084,
+      0.32885,
+      0.47765,
+      0.68925,
+      0.37165000000000004
+     ]
+    },
+    "path": "/quality/diagnostics"
+   },
+   "current_diagnostics_hist64": {
+    "handler_total_ms": {
+     "note": "per-session median of the server-reported handler_total_ns (diagnostics response); context, not a client-side measurement",
+     "unit": "ms",
+     "values": [
+      3.11175,
+      2.25325,
+      2.492,
+      2.2222,
+      2.44495
+     ]
+    },
+    "latency_ms": {
+     "p50": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 4.7647,
+      "measure": "per_op_latency",
+      "median": 3.9125,
+      "min": 3.6959000000000004,
+      "n": 5,
+      "p25": 3.7015499999999997,
+      "p75": 4.0004,
+      "percentile": 50,
+      "pooled": 3.9252999999999996,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       4.7647,
+       3.7015499999999997,
+       4.0004,
+       3.6959000000000004,
+       3.9125
+      ]
+     },
+     "p95": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 9.799995000000001,
+      "measure": "per_op_latency",
+      "median": 4.806845,
+      "min": 4.127565000000001,
+      "n": 5,
+      "p25": 4.627545,
+      "p75": 5.527165,
+      "percentile": 95,
+      "pooled": 5.705074999999999,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       9.799995000000001,
+       5.527165,
+       4.806845,
+       4.127565000000001,
+       4.627545
+      ]
+     },
+     "p99": {
+      "build": "instrumented:iqg-diagnostics-endpoint",
+      "max": 11.911618,
+      "measure": "per_op_latency",
+      "median": 7.7321860000000004,
+      "min": 4.61187,
+      "n": 5,
+      "p25": 5.735266,
+      "p75": 9.870537,
+      "percentile": 99,
+      "pooled": 10.017338,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       11.911618,
+       9.870537,
+       7.7321860000000004,
+       4.61187,
+       5.735266
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "instrumented:iqg-diagnostics-endpoint",
+     "definition": "per round: current_diagnostics_hist64 - baseline_quality request time, both sent in the same shuffled round",
+     "max": 2.29095,
+     "measure": "request_wall_time",
+     "median": 1.5989499999999999,
+     "min": 1.37785,
+     "n": 5,
+     "p25": 1.49925,
+     "p75": 1.6806,
+     "pooled_median": 1.6359,
+     "pooled_p25": 1.3963500000000002,
+     "pooled_p75": 1.9626499999999998,
+     "reference": "baseline_quality",
+     "samples": 1500,
+     "unit": "ms",
+     "values": [
+      2.29095,
+      1.37785,
+      1.6806,
+      1.49925,
+      1.5989499999999999
+     ]
+    },
+    "path": "/quality/diagnostics?laplacian_histogram_bins=64"
+   },
+   "current_quality": {
+    "latency_ms": {
+     "p50": {
+      "build": "uninstrumented",
+      "max": 2.5138499999999997,
+      "measure": "per_op_latency",
+      "median": 2.3895,
+      "min": 2.07515,
+      "n": 5,
+      "p25": 2.2929000000000004,
+      "p75": 2.4096999999999995,
+      "percentile": 50,
+      "pooled": 2.3526,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       2.5138499999999997,
+       2.3895,
+       2.4096999999999995,
+       2.07515,
+       2.2929000000000004
+      ]
+     },
+     "p95": {
+      "build": "uninstrumented",
+      "max": 4.41568,
+      "measure": "per_op_latency",
+      "median": 2.9148150000000004,
+      "min": 2.3945,
+      "n": 5,
+      "p25": 2.846015,
+      "p75": 3.1667150000000004,
+      "percentile": 95,
+      "pooled": 3.182225,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       4.41568,
+       3.1667150000000004,
+       2.9148150000000004,
+       2.3945,
+       2.846015
+      ]
+     },
+     "p99": {
+      "build": "uninstrumented",
+      "max": 6.012865,
+      "measure": "per_op_latency",
+      "median": 4.527537,
+      "min": 3.021367,
+      "n": 5,
+      "p25": 3.4922050000000002,
+      "p75": 5.989383,
+      "percentile": 99,
+      "pooled": 5.283472000000001,
+      "samples": 1500,
+      "unit": "ms",
+      "values": [
+       6.012865,
+       5.989383,
+       4.527537,
+       3.021367,
+       3.4922050000000002
+      ]
+     }
+    },
+    "paired_delta_ms": {
+     "build": "uninstrumented",
+     "definition": "per round: current_quality - baseline_quality request time, both sent in the same shuffled round",
+     "max": 0.10045,
+     "measure": "request_wall_time",
+     "median": 0.019,
+     "min": -0.1138,
+     "n": 5,
+     "p25": -0.02665,
+     "p75": 0.0382,
+     "pooled_median": 0.001,
+     "pooled_p25": -0.16210000000000002,
+     "pooled_p75": 0.16357500000000003,
+     "reference": "baseline_quality",
+     "samples": 1500,
+     "unit": "ms",
+     "values": [
+      0.019,
+      0.0382,
+      0.10045,
+      -0.1138,
+      -0.02665
+     ]
+    },
+    "path": "/quality"
+   },
+   "quality_body_identical": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ "limits": {
+  "jpeg_5000x5000": {
+   "after": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 437.4899,
+     "measure": "request_wall_time",
+     "median": 425.9465,
+     "min": 408.3984,
+     "n": 5,
+     "p25": 425.2379,
+     "p75": 428.049,
+     "unit": "ms",
+     "values": [
+      425.2379,
+      437.4899,
+      425.9465,
+      408.3984,
+      428.049
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 290.6015625,
+     "measure": "heap_bytes",
+     "median": 290.20703125,
+     "min": 290.1796875,
+     "n": 5,
+     "p25": 290.19140625,
+     "p75": 290.3515625,
+     "unit": "MiB",
+     "values": [
+      290.3515625,
+      290.19140625,
+      290.20703125,
+      290.6015625,
+      290.1796875
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      200,
+      200,
+      200,
+      200,
+      200
+     ]
+    }
+   },
+   "before": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 457.0791,
+     "measure": "request_wall_time",
+     "median": 423.732,
+     "min": 405.179,
+     "n": 5,
+     "p25": 406.0152,
+     "p75": 424.9833,
+     "unit": "ms",
+     "values": [
+      406.0152,
+      424.9833,
+      423.732,
+      405.179,
+      457.0791
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 290.38671875,
+     "measure": "heap_bytes",
+     "median": 290.24609375,
+     "min": 290.11328125,
+     "n": 5,
+     "p25": 290.2109375,
+     "p75": 290.25390625,
+     "unit": "MiB",
+     "values": [
+      290.25390625,
+      290.38671875,
+      290.24609375,
+      290.2109375,
+      290.11328125
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      200,
+      200,
+      200,
+      200,
+      200
+     ]
+    }
+   },
+   "description": "valid 5000 x 5000 (exactly 25 MP) photo-like JPEG, bench_quality.make_photo",
+   "input_bytes": 3231093
+  },
+  "png_bomb_12000x12000": {
+   "after": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 28.4811,
+     "measure": "request_wall_time",
+     "median": 26.9266,
+     "min": 16.7363,
+     "n": 5,
+     "p25": 16.9875,
+     "p75": 26.9887,
+     "unit": "ms",
+     "values": [
+      26.9887,
+      26.9266,
+      16.9875,
+      28.4811,
+      16.7363
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 0.98046875,
+     "measure": "heap_bytes",
+     "median": 0.8828125,
+     "min": 0.82421875,
+     "n": 5,
+     "p25": 0.87890625,
+     "p75": 0.89453125,
+     "unit": "MiB",
+     "values": [
+      0.87890625,
+      0.82421875,
+      0.89453125,
+      0.8828125,
+      0.98046875
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      400,
+      400,
+      400,
+      400,
+      400
+     ]
+    }
+   },
+   "before": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 1355.648,
+     "measure": "request_wall_time",
+     "median": 1325.5816,
+     "min": 1318.5328,
+     "n": 5,
+     "p25": 1321.4734,
+     "p75": 1339.0834,
+     "unit": "ms",
+     "values": [
+      1318.5328,
+      1325.5816,
+      1355.648,
+      1339.0834,
+      1321.4734
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 825.19921875,
+     "measure": "heap_bytes",
+     "median": 825.10546875,
+     "min": 824.94140625,
+     "n": 5,
+     "p25": 825.0546875,
+     "p75": 825.1953125,
+     "unit": "MiB",
+     "values": [
+      825.1953125,
+      825.10546875,
+      825.0546875,
+      824.94140625,
+      825.19921875
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      200,
+      200,
+      200,
+      200,
+      200
+     ]
+    }
+   },
+   "description": "solid gray (L, 128) PNG of 12000 x 12000 = 144 MP, Pillow default compression",
+   "input_bytes": 168461
+  },
+  "truncated_sharp_small": {
+   "after": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 26.0933,
+     "measure": "request_wall_time",
+     "median": 16.3233,
+     "min": 12.5313,
+     "n": 5,
+     "p25": 13.0037,
+     "p75": 22.8863,
+     "unit": "ms",
+     "values": [
+      26.0933,
+      16.3233,
+      22.8863,
+      13.0037,
+      12.5313
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 0.8203125,
+     "measure": "heap_bytes",
+     "median": 0.7734375,
+     "min": 0.7421875,
+     "n": 5,
+     "p25": 0.74609375,
+     "p75": 0.7890625,
+     "unit": "MiB",
+     "values": [
+      0.7734375,
+      0.74609375,
+      0.7890625,
+      0.8203125,
+      0.7421875
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      400,
+      400,
+      400,
+      400,
+      400
+     ]
+    }
+   },
+   "before": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 42.3891,
+     "measure": "request_wall_time",
+     "median": 25.7958,
+     "min": 18.5188,
+     "n": 5,
+     "p25": 22.1281,
+     "p75": 36.9103,
+     "unit": "ms",
+     "values": [
+      22.1281,
+      25.7958,
+      18.5188,
+      36.9103,
+      42.3891
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 3.15234375,
+     "measure": "heap_bytes",
+     "median": 3.015625,
+     "min": 2.90625,
+     "n": 5,
+     "p25": 2.91796875,
+     "p75": 3.0625,
+     "unit": "MiB",
+     "values": [
+      2.91796875,
+      3.15234375,
+      2.90625,
+      3.015625,
+      3.0625
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      200,
+      200,
+      200,
+      200,
+      200
+     ]
+    }
+   },
+   "description": "first half of tests/assets/sharp_small.jpg (1147 of 2294 bytes)",
+   "input_bytes": 1147
+  },
+  "upload_100mib_chunked": {
+   "after": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 71.6468,
+     "measure": "request_wall_time",
+     "median": 31.8563,
+     "min": 27.5799,
+     "n": 5,
+     "p25": 30.7147,
+     "p75": 59.1061,
+     "unit": "ms",
+     "values": [
+      31.8563,
+      27.5799,
+      71.6468,
+      59.1061,
+      30.7147
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 3.2421875,
+     "measure": "heap_bytes",
+     "median": 2.48828125,
+     "min": 2.28125,
+     "n": 5,
+     "p25": 2.41015625,
+     "p75": 2.50390625,
+     "unit": "MiB",
+     "values": [
+      2.48828125,
+      2.28125,
+      2.50390625,
+      3.2421875,
+      2.41015625
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      413,
+      413,
+      413,
+      413,
+      413
+     ]
+    }
+   },
+   "before": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 503.6089,
+     "measure": "request_wall_time",
+     "median": 456.2354,
+     "min": 441.8571,
+     "n": 5,
+     "p25": 452.2284,
+     "p75": 464.9854,
+     "unit": "ms",
+     "values": [
+      503.6089,
+      441.8571,
+      464.9854,
+      456.2354,
+      452.2284
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 102.02734375,
+     "measure": "heap_bytes",
+     "median": 101.53125,
+     "min": 101.21875,
+     "n": 5,
+     "p25": 101.40625,
+     "p75": 101.6015625,
+     "unit": "MiB",
+     "values": [
+      102.02734375,
+      101.6015625,
+      101.40625,
+      101.53125,
+      101.21875
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      413,
+      413,
+      413,
+      413,
+      413
+     ]
+    }
+   },
+   "description": "100 MiB multipart upload (zero bytes), Transfer-Encoding: chunked, 64 KiB chunks, no Content-Length",
+   "input_bytes": 104857600
+  },
+  "upload_100mib_content_length": {
+   "after": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 3.6679,
+     "measure": "request_wall_time",
+     "median": 1.6832,
+     "min": 1.1268,
+     "n": 5,
+     "p25": 1.36,
+     "p75": 2.2037,
+     "unit": "ms",
+     "values": [
+      1.36,
+      1.1268,
+      1.6832,
+      2.2037,
+      3.6679
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 0.43359375,
+     "measure": "heap_bytes",
+     "median": 0.25,
+     "min": 0.1796875,
+     "n": 5,
+     "p25": 0.1875,
+     "p75": 0.25,
+     "unit": "MiB",
+     "values": [
+      0.1875,
+      0.25,
+      0.1796875,
+      0.43359375,
+      0.25
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      413,
+      413,
+      413,
+      413,
+      413
+     ]
+    }
+   },
+   "before": {
+    "elapsed_ms": {
+     "build": "uninstrumented",
+     "definition": "client side, from the first byte sent to the response body read; one request per fresh server",
+     "max": 572.0668,
+     "measure": "request_wall_time",
+     "median": 521.6432,
+     "min": 371.7771,
+     "n": 5,
+     "p25": 485.8529,
+     "p75": 542.9677,
+     "unit": "ms",
+     "values": [
+      485.8529,
+      542.9677,
+      371.7771,
+      521.6432,
+      572.0668
+     ]
+    },
+    "rss_growth_mib": {
+     "build": "uninstrumented",
+     "definition": "server peak resident memory after the request minus before it (Windows PeakWorkingSetSize, Linux VmHWM)",
+     "max": 100.58203125,
+     "measure": "heap_bytes",
+     "median": 100.375,
+     "min": 100.09375,
+     "n": 5,
+     "p25": 100.265625,
+     "p75": 100.56640625,
+     "unit": "MiB",
+     "values": [
+      100.265625,
+      100.375,
+      100.09375,
+      100.56640625,
+      100.58203125
+     ]
+    },
+    "status": {
+     "note": "status code per run; null when no response was read",
+     "unit": "HTTP status",
+     "values": [
+      413,
+      413,
+      413,
+      413,
+      413
+     ]
+    }
+   },
+   "description": "100 MiB multipart upload (zero bytes) with Content-Length",
+   "input_bytes": 104857600
+  }
+ },
+ "pipeline": {
+  "blurry_small.jpg": {
+   "baseline_ms": {
+    "build": "uninstrumented",
+    "max": 0.97585,
+    "measure": "request_wall_time",
+    "median": 0.8749,
+    "min": 0.77315,
+    "n": 5,
+    "p25": 0.7865500000000001,
+    "p75": 0.91385,
+    "pooled_median": 0.89325,
+    "pooled_p25": 0.7565000000000001,
+    "pooled_p75": 0.9913749999999999,
+    "samples": 2000,
+    "unit": "ms",
+    "values": [
+     0.7865500000000001,
+     0.91385,
+     0.77315,
+     0.97585,
+     0.8749
+    ]
+   },
+   "current_ms": {
+    "build": "uninstrumented",
+    "max": 0.99385,
+    "measure": "request_wall_time",
+    "median": 0.9197500000000001,
+    "min": 0.8009,
+    "n": 5,
+    "p25": 0.8176,
+    "p75": 0.96825,
+    "pooled_median": 0.92425,
+    "pooled_p25": 0.78535,
+    "pooled_p75": 1.0259,
+    "samples": 2000,
+    "unit": "ms",
+    "values": [
+     0.8176,
+     0.96825,
+     0.8009,
+     0.99385,
+     0.9197500000000001
+    ]
+   },
+   "delta_ms": {
+    "build": "uninstrumented",
+    "definition": "per alternating pair: current - baseline in-process pipeline time (no HTTP)",
+    "max": 0.06415,
+    "measure": "request_wall_time",
+    "median": 0.0304,
+    "min": 0.0194,
+    "n": 5,
+    "p25": 0.029199999999999997,
+    "p75": 0.031100000000000003,
+    "pooled_median": 0.02975,
+    "pooled_p25": -0.03,
+    "pooled_p75": 0.10837499999999999,
+    "samples": 2000,
+    "unit": "ms",
+    "values": [
+     0.029199999999999997,
+     0.06415,
+     0.0194,
+     0.0304,
+     0.031100000000000003
+    ]
+   },
+   "pairs": 400
+  },
+  "photo_1600x1200.jpg": {
+   "baseline_ms": {
+    "build": "uninstrumented",
+    "max": 31.1594,
+    "measure": "request_wall_time",
+    "median": 30.66975,
+    "min": 30.4775,
+    "n": 5,
+    "p25": 30.576999999999998,
+    "p75": 30.901899999999998,
+    "pooled_median": 30.71185,
+    "pooled_p25": 30.32255,
+    "pooled_p75": 31.798925,
+    "samples": 100,
+    "unit": "ms",
+    "values": [
+     30.576999999999998,
+     30.4775,
+     30.901899999999998,
+     30.66975,
+     31.1594
+    ]
+   },
+   "current_ms": {
+    "build": "uninstrumented",
+    "max": 30.81075,
+    "measure": "request_wall_time",
+    "median": 30.49015,
+    "min": 30.37345,
+    "n": 5,
+    "p25": 30.403750000000002,
+    "p75": 30.69285,
+    "pooled_median": 30.5268,
+    "pooled_p25": 30.202275,
+    "pooled_p75": 31.429925000000004,
+    "samples": 100,
+    "unit": "ms",
+    "values": [
+     30.37345,
+     30.403750000000002,
+     30.69285,
+     30.49015,
+     30.81075
+    ]
+   },
+   "delta_ms": {
+    "build": "uninstrumented",
+    "definition": "per alternating pair: current - baseline in-process pipeline time (no HTTP)",
+    "max": -0.02155,
+    "measure": "request_wall_time",
+    "median": -0.0806,
+    "min": -0.60495,
+    "n": 5,
+    "p25": -0.1992,
+    "p75": -0.05985,
+    "pooled_median": -0.15145,
+    "pooled_p25": -0.8274000000000001,
+    "pooled_p75": 0.26787500000000003,
+    "samples": 100,
+    "unit": "ms",
+    "values": [
+     -0.1992,
+     -0.0806,
+     -0.02155,
+     -0.05985,
+     -0.60495
+    ]
+   },
+   "pairs": 20
+  },
+  "photo_4032x3024_exif6.jpg": {
+   "baseline_ms": {
+    "build": "uninstrumented",
+    "max": 217.86464999999998,
+    "measure": "request_wall_time",
+    "median": 217.07315,
+    "min": 215.58350000000002,
+    "n": 5,
+    "p25": 216.28985,
+    "p75": 217.2787,
+    "pooled_median": 217.24945,
+    "pooled_p25": 214.93165000000002,
+    "pooled_p75": 219.70195,
+    "samples": 100,
+    "unit": "ms",
+    "values": [
+     217.86464999999998,
+     215.58350000000002,
+     216.28985,
+     217.07315,
+     217.2787
+    ]
+   },
+   "current_ms": {
+    "build": "uninstrumented",
+    "max": 217.1188,
+    "measure": "request_wall_time",
+    "median": 216.70735000000002,
+    "min": 214.7036,
+    "n": 5,
+    "p25": 215.33665,
+    "p75": 216.90525,
+    "pooled_median": 216.43529999999998,
+    "pooled_p25": 214.32317500000002,
+    "pooled_p75": 219.010075,
+    "samples": 100,
+    "unit": "ms",
+    "values": [
+     216.70735000000002,
+     214.7036,
+     217.1188,
+     216.90525,
+     215.33665
+    ]
+   },
+   "delta_ms": {
+    "build": "uninstrumented",
+    "definition": "per alternating pair: current - baseline in-process pipeline time (no HTTP)",
+    "max": 0.8901,
+    "measure": "request_wall_time",
+    "median": -1.0471,
+    "min": -2.36395,
+    "n": 5,
+    "p25": -1.1033499999999998,
+    "p75": 0.34125,
+    "pooled_median": -0.9413499999999999,
+    "pooled_p25": -3.51285,
+    "pooled_p75": 3.1142250000000002,
+    "samples": 100,
+    "unit": "ms",
+    "values": [
+     -1.0471,
+     -1.1033499999999998,
+     0.8901,
+     0.34125,
+     -2.36395
+    ]
+   },
+   "pairs": 20
+  },
+  "sharp_small.jpg": {
+   "baseline_ms": {
+    "build": "uninstrumented",
+    "max": 0.88165,
+    "measure": "request_wall_time",
+    "median": 0.7498,
+    "min": 0.5548,
+    "n": 5,
+    "p25": 0.61245,
+    "p75": 0.84175,
+    "pooled_median": 0.7436,
+    "pooled_p25": 0.6001749999999999,
+    "pooled_p75": 0.89695,
+    "samples": 2000,
+    "unit": "ms",
+    "values": [
+     0.88165,
+     0.84175,
+     0.61245,
+     0.5548,
+     0.7498
+    ]
+   },
+   "current_ms": {
+    "build": "uninstrumented",
+    "max": 0.9096,
+    "measure": "request_wall_time",
+    "median": 0.7726999999999999,
+    "min": 0.57205,
+    "n": 5,
+    "p25": 0.6299,
+    "p75": 0.8852,
+    "pooled_median": 0.76445,
+    "pooled_p25": 0.6183,
+    "pooled_p75": 0.927175,
+    "samples": 2000,
+    "unit": "ms",
+    "values": [
+     0.9096,
+     0.8852,
+     0.6299,
+     0.57205,
+     0.7726999999999999
+    ]
+   },
+   "delta_ms": {
+    "build": "uninstrumented",
+    "definition": "per alternating pair: current - baseline in-process pipeline time (no HTTP)",
+    "max": 0.0445,
+    "measure": "request_wall_time",
+    "median": 0.018,
+    "min": 0.0153,
+    "n": 5,
+    "p25": 0.0173,
+    "p75": 0.018099999999999998,
+    "pooled_median": 0.018,
+    "pooled_p25": -0.023799999999999998,
+    "pooled_p75": 0.084675,
+    "samples": 2000,
+    "unit": "ms",
+    "values": [
+     0.018099999999999998,
+     0.0445,
+     0.018,
+     0.0173,
+     0.0153
+    ]
+   },
+   "pairs": 400
+  }
+ },
+ "policy": {
+  "invalid_runs_excluded": [],
+  "measures": "per_op_latency: percentiles of individually timed requests (client side, send to body read); values are the per-session percentiles, pooled is the same percentile over every kept request of the valid sessions. request_wall_time: per-session medians of paired per-round differences (variant - baseline_quality, in-process baseline vs current), and single-request times of the input-limits probe. heap_bytes: growth of the server process's peak resident memory over one request (PeakWorkingSetSize on Windows, VmHWM on Linux), not heap accounting",
+  "outliers": "no samples dropped; whole runs marked invalid on precondition failure",
+  "quantile_method": "inclusive",
+  "runs": 5,
+  "runs_by_harness": {
+   "bench_quality_sessions": 5,
+   "limits_probe_runs": 5
+  },
+  "values": "run-level: one value per bench_quality.py session (http, pipeline) or per fresh-server probe run (limits), in run order",
+  "warmup": "bench_quality.py: 3 warm-up rounds per asset and session, not kept; every session starts fresh servers; pipeline A/B: one warm-up call per side and asset. limits_probe.py: one GET /health per fresh server before the request"
+ },
+ "project": "image-quality-gate",
+ "schema": "bench-summary/1",
+ "source_sha": "a0834d44502febb6c68b9e8f6f6761377a7e1d6c",
+ "tests": {
+  "failed": 0,
+  "passed": 130,
+  "skipped": 0,
+  "total": 130
+ }
+}

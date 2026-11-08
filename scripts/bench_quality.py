@@ -13,6 +13,9 @@ Two measurements:
    /quality now runs, in one process without HTTP, alternating call by call.
 
 Usage (examples):
+  python bench/run_bench.py --env windows-native   # or ubuntu-wsl2: the documented,
+                                                   # reproducible flow (git archive
+                                                   # baseline, 5 sessions, metadata)
   git worktree add ../iqg-baseline main      # or: git archive main | tar -x -C DIR
   python scripts/bench_quality.py --baseline ../iqg-baseline
   python scripts/bench_quality.py --baseline ../iqg-baseline --rounds 300 --json out/bench.json
@@ -54,6 +57,13 @@ SETTINGS_ENV = {
     "prometheus_enabled",
 }
 BOUNDARY = "benchboundary7d9f2c"
+# Stable keys for --raw-dir file names and bench/run_bench.py summaries.
+VARIANT_KEYS = {
+    "baseline /quality": "baseline_quality",
+    "current /quality": "current_quality",
+    "current /quality/diagnostics": "current_diagnostics",
+    "current /quality/diagnostics+hist64": "current_diagnostics_hist64",
+}
 
 
 def make_photo(width: int, height: int, orientation: int | None = None) -> bytes:
@@ -99,10 +109,11 @@ def free_port() -> int:
         return s.getsockname()[1]
 
 
-def start_server(app_dir: Path, workdir: Path, env: dict) -> tuple:
+def start_server(app_dir: Path, workdir: Path, env: dict, loop: str = "auto") -> tuple:
     port = free_port()
     cmd = [sys.executable, "-m", "uvicorn", "app.main:app", "--app-dir", str(app_dir)]
     cmd += ["--host", "127.0.0.1", "--port", str(port), "--log-level", "warning"]
+    cmd += ["--loop", loop]
     # Photo rounds can leave a connection idle longer than the 5 s default.
     cmd += ["--timeout-keep-alive", "600"]
     proc = subprocess.Popen(cmd, cwd=workdir, env=env)
@@ -141,7 +152,16 @@ def load_module(name: str, path: Path):
     return module
 
 
-def paired_pipeline(baseline: Path, assets: list, pairs: int) -> dict:
+def write_raw(path: Path, obj: dict) -> None:
+    """One compact JSON document with LF line endings (raw per-request data)."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(obj, sort_keys=True, separators=(",", ":")) + "\n")
+
+
+def paired_pipeline(
+    baseline: Path, assets: list, pairs: int, raw_dir: Path | None = None
+) -> dict:
     """
     In-process A/B of the image pipeline without HTTP: the baseline's
     preprocess.py/quality.py (they import nothing from app.) against the
@@ -195,6 +215,18 @@ def paired_pipeline(baseline: Path, assets: list, pairs: int) -> dict:
             "paired_delta_p25_us": quantile(deltas, 25) / 1e3,
             "paired_delta_p75_us": quantile(deltas, 75) / 1e3,
         }
+        if raw_dir is not None:
+            write_raw(
+                raw_dir / "pipeline" / f"{asset['name']}.json",
+                {
+                    "asset": asset["name"],
+                    "pairs": n,
+                    "order": "alternating: even pairs run the baseline first",
+                    "baseline_ns": olds,
+                    "current_ns": news,
+                    "paired_delta_ns": deltas,
+                },
+            )
     return results
 
 
@@ -213,6 +245,7 @@ def summarize(values_ns: list) -> dict:
         "p75_ms": quantile(ms, 75),
         "p5_ms": quantile(ms, 5),
         "p95_ms": quantile(ms, 95),
+        "p99_ms": quantile(ms, 99),
     }
 
 
@@ -226,6 +259,16 @@ def environment_info() -> dict:
     import uvicorn
 
     cpu = platform.processor() or "unknown"
+    if sys.platform == "win32":
+        # platform.processor() is "Intel64 Family 6 Model ..." on Windows.
+        import winreg
+
+        try:
+            key = r"HARDWARE\DESCRIPTION\System\CentralProcessor\0"
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key) as k:
+                cpu = str(winreg.QueryValueEx(k, "ProcessorNameString")[0]).strip()
+        except OSError:
+            pass
     try:
         for line in Path("/proc/cpuinfo").read_text().splitlines():
             if line.startswith("model name"):
@@ -255,6 +298,18 @@ def main() -> None:
     ap.add_argument("--photo-rounds", type=int, default=20, help="Per photo.")
     ap.add_argument("--pairs", type=int, default=400, help="Pipeline A/B pairs.")
     ap.add_argument("--json", type=Path, help="Optional path to write results.")
+    ap.add_argument(
+        "--uvicorn-loop",
+        choices=("auto", "asyncio"),
+        default="auto",
+        help="uvicorn --loop for every server (auto: uvloop when installed).",
+    )
+    ap.add_argument(
+        "--raw-dir",
+        type=Path,
+        help="Optional directory for the per-request nanosecond arrays "
+        "(<raw-dir>/<asset>/<variant>.json, <raw-dir>/pipeline/<asset>.json).",
+    )
     args = ap.parse_args()
     if args.baseline and not (args.baseline / "app" / "main.py").exists():
         sys.exit(f"--baseline has no app/main.py: {args.baseline}")
@@ -292,7 +347,7 @@ def main() -> None:
         # One server per variant: an endpoint's measurements must not depend on
         # what another endpoint left behind in the same process (memory state).
         servers = {
-            label: start_server(app_dir, Path(tmp), env)
+            label: start_server(app_dir, Path(tmp), env, args.uvicorn_loop)
             for label, app_dir, _ in variants
         }
         rng = random.Random(0)
@@ -336,6 +391,26 @@ def main() -> None:
                     report["results"][asset["name"]]["quality_body_identical"] = (
                         digests["baseline /quality"] == digests["current /quality"]
                     )
+                if args.raw_dir:
+                    for label, _, path in variants:
+                        name = f"{VARIANT_KEYS[label]}.json"
+                        write_raw(
+                            args.raw_dir / asset["name"] / name,
+                            {
+                                "asset": asset["name"],
+                                "bytes": len(asset["data"]),
+                                "variant": label,
+                                "path": path,
+                                "warmup_rounds": 3,
+                                "reference": reference,
+                                "latency_ns": lat[label],
+                                "paired_delta_ns": [
+                                    a - b for a, b in zip(lat[label], lat[reference])
+                                ],
+                                "handler_total_ns": handler[label],
+                                "body_sha256": digests[label],
+                            },
+                        )
                 print(f"{asset['name']} done", file=sys.stderr)
         finally:
             for proc, conn in servers.values():
@@ -345,7 +420,7 @@ def main() -> None:
 
     if args.baseline:
         report["pipeline_ab"] = paired_pipeline(
-            args.baseline.resolve(), assets, args.pairs
+            args.baseline.resolve(), assets, args.pairs, args.raw_dir
         )
     info = environment_info()
     if load_start is not None:

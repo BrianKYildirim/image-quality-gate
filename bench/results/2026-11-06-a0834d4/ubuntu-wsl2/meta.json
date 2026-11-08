@@ -1,0 +1,853 @@
+{
+ "command": [
+  "python",
+  "bench/run_bench.py",
+  "--env",
+  "ubuntu-wsl2",
+  "--session-date",
+  "2026-11-06"
+ ],
+ "date_utc": "2026-11-06T14:44:56Z",
+ "date_utc_end": "2026-11-06T14:54:15Z",
+ "environment_id": "ubuntu-wsl2",
+ "hardware": {
+  "cpu_model": "11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz",
+  "logical_cpus": 8,
+  "memory_bytes": 8235180032,
+  "physical_cores": 4
+ },
+ "instrumentation": "iqg-diagnostics-endpoint: current_diagnostics and current_diagnostics_hist64 call POST /quality/diagnostics (build instrumented:iqg-diagnostics-endpoint); baseline_quality, current_quality, the pipeline A/B and the input-limits probe are uninstrumented",
+ "library": {
+  "baseline": {
+   "ref": "8e47d744b7cc0db618fb95c35707e5a258b897cd",
+   "sha": "8e47d744b7cc0db618fb95c35707e5a258b897cd"
+  },
+  "constraints": "bench/constraints-py311.txt",
+  "constraints_match": true,
+  "event_loop": "uvloop",
+  "server": "uvicorn, one worker per server, 127.0.0.1, default settings, LOG_LEVEL=WARNING",
+  "uvicorn_loop_flag": "auto"
+ },
+ "load": {
+  "cpu_busy_pct_end": 0.0,
+  "cpu_busy_pct_start": 0.13,
+  "loadavg_1m_end": 1.12,
+  "loadavg_1m_start": 0.0
+ },
+ "notes": [
+  "raw text: absolute repo, temporary and home paths replaced by <repo>, <tmp> and <home>; line endings normalized to LF",
+  "cpu_busy_pct and loadavg describe the WSL VM only, not Windows host activity (RESEARCH Pitfall 4)"
+ ],
+ "os": {
+  "build": "26.04",
+  "family": "Linux",
+  "kernel": "6.18.54.1-microsoft-standard-WSL2",
+  "libc": "glibc 2.43",
+  "name": "Ubuntu 26.04.1 LTS",
+  "wsl": {
+   "distro": "Ubuntu-26.04",
+   "nproc": 8,
+   "version": "3.0.3.0",
+   "wslconfig": null,
+   "wslconfig_note": "absent: WSL defaults apply"
+  }
+ },
+ "power": {
+  "ac_line": true,
+  "scheme": "Balanced",
+  "source": "Windows host through WSL interop: PowerStatus.PowerLineStatus; powercfg.exe /getactivescheme"
+ },
+ "power_end": {
+  "ac_line": true,
+  "scheme": "Balanced",
+  "source": "Windows host through WSL interop: PowerStatus.PowerLineStatus; powercfg.exe /getactivescheme"
+ },
+ "project": "image-quality-gate",
+ "raw_files": [
+  {
+   "bytes": 28745,
+   "path": "raw/limits.json",
+   "sha256": "e010497358bfb541ca4dc1514866f233919f086dfacb04dd4526a6379bf8e149"
+  },
+  {
+   "bytes": 3624,
+   "path": "raw/limits.txt",
+   "sha256": "2a400c170b8a45984ed40f25dada82fa544c44d20194317e8a1f3c02ca53a20a"
+  },
+  {
+   "bytes": 9245,
+   "path": "raw/session-01.json",
+   "sha256": "3b6900519eb8047ea24583b049214815bf75c18c576672774d32f0bc2c391e0b"
+  },
+  {
+   "bytes": 4180,
+   "path": "raw/session-01.txt",
+   "sha256": "b7187e6518d18a76ebbff1c81b84cc83cbf3f63a21226c6b7c9e17f210ec0853"
+  },
+  {
+   "bytes": 3278,
+   "path": "raw/session-01/blurry_small.jpg/baseline_quality.json",
+   "sha256": "1a7f3955a24c52d970ad54530584d0e2daa704796e3691834d976b9ec0e78e2b"
+  },
+  {
+   "bytes": 7286,
+   "path": "raw/session-01/blurry_small.jpg/current_diagnostics.json",
+   "sha256": "fb2b47a7a315f1962e843a8929cb3107d0788e0546def4a9b9b84383f07acc9f"
+  },
+  {
+   "bytes": 7526,
+   "path": "raw/session-01/blurry_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "73fa4045a4716dcb905bc47f2cd5701f1116237d8fcfdeb08b2f06f9bf2f574e"
+  },
+  {
+   "bytes": 4854,
+   "path": "raw/session-01/blurry_small.jpg/current_quality.json",
+   "sha256": "7d9537a3b70fe75d6de1009a2cc41b3dba632f0046b16a294af15da23c47bbad"
+  },
+  {
+   "bytes": 943,
+   "path": "raw/session-01/photo_1600x1200.jpg/baseline_quality.json",
+   "sha256": "8512eecfcc4a5a8482cf69e2c7f03ad250d309c5575f4862fc0b6e0b4e71996c"
+  },
+  {
+   "bytes": 1909,
+   "path": "raw/session-01/photo_1600x1200.jpg/current_diagnostics.json",
+   "sha256": "6207b0345d4f8700fb0e71403d890fd9c36e623b7bdaed2a44310ab750ffdf91"
+  },
+  {
+   "bytes": 1960,
+   "path": "raw/session-01/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+   "sha256": "7245106d4433a93e3396b65bac839e67a094eafdd41bba96743b2e5d2ca73ec8"
+  },
+  {
+   "bytes": 1308,
+   "path": "raw/session-01/photo_1600x1200.jpg/current_quality.json",
+   "sha256": "04d1e81d91e7c37fcb0ea22d537b0a00b406d87260e0e8038728fd3fad44e4f5"
+  },
+  {
+   "bytes": 1010,
+   "path": "raw/session-01/photo_4032x3024_exif6.jpg/baseline_quality.json",
+   "sha256": "dcb8c099d3795ad95f98942adbe227237f10626aa78fa401fdae0c0098b09f67"
+  },
+  {
+   "bytes": 2042,
+   "path": "raw/session-01/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+   "sha256": "c68ecc0b6afc10af636d9a93889308f12f43de6620df191a3c36e607c8148a5b"
+  },
+  {
+   "bytes": 2076,
+   "path": "raw/session-01/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+   "sha256": "853a185b8a9f7d919aeb0ccfe833ce0b341f6d685e9436d9e6603d3af8b16cb8"
+  },
+  {
+   "bytes": 1429,
+   "path": "raw/session-01/photo_4032x3024_exif6.jpg/current_quality.json",
+   "sha256": "b9d2b69eba89efc045d9bb47bc697e75954f3f50e0fa70c6eab45a878604f44d"
+  },
+  {
+   "bytes": 8267,
+   "path": "raw/session-01/pipeline/blurry_small.jpg.json",
+   "sha256": "93a2eb33076b31bf2d95ccc23ac5818ed44e6121d31fe0f8dc54614acb800c9f"
+  },
+  {
+   "bytes": 658,
+   "path": "raw/session-01/pipeline/photo_1600x1200.jpg.json",
+   "sha256": "e4a3c0920f6e4c00cc2fec175cf6a0cf7f8fe546d6b4a5100d2554eb32e99609"
+  },
+  {
+   "bytes": 731,
+   "path": "raw/session-01/pipeline/photo_4032x3024_exif6.jpg.json",
+   "sha256": "91b3ff6452188bd2050212a921edc9ed4eee566ea78ccca1449e83beb20cbe36"
+  },
+  {
+   "bytes": 8136,
+   "path": "raw/session-01/pipeline/sharp_small.jpg.json",
+   "sha256": "007c803552bdf498b03116f9d2e2bb92ba310e4a992dd2e74cef8933261ce20b"
+  },
+  {
+   "bytes": 3277,
+   "path": "raw/session-01/sharp_small.jpg/baseline_quality.json",
+   "sha256": "89595ed8a227bd3b54cf6fe2b23e586067b98a820b9a57a7aeb726d8281da45e"
+  },
+  {
+   "bytes": 7272,
+   "path": "raw/session-01/sharp_small.jpg/current_diagnostics.json",
+   "sha256": "93d560ec890f7bdc41207e1608d2117b2fbf73752333a593a6d1cfd71bdde305"
+  },
+  {
+   "bytes": 7529,
+   "path": "raw/session-01/sharp_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "10fffef850ac1d552bc25eb178d6acfdc799f2102fed8d3b0503327eed0be13a"
+  },
+  {
+   "bytes": 4833,
+   "path": "raw/session-01/sharp_small.jpg/current_quality.json",
+   "sha256": "3a399fcc0eaef61d5e79e525a5bd8f1a57bb31ec7a47aa40d14c8762797db003"
+  },
+  {
+   "bytes": 9308,
+   "path": "raw/session-02.json",
+   "sha256": "aa0dbfb5e86e301e8520086ceb6078985846ba13cbe7caff10629f7c94e7ebc0"
+  },
+  {
+   "bytes": 4180,
+   "path": "raw/session-02.txt",
+   "sha256": "9d03b6e28369e203957b151e8a8042558d7cff14cebcb0ba49324bc21d50ec80"
+  },
+  {
+   "bytes": 3278,
+   "path": "raw/session-02/blurry_small.jpg/baseline_quality.json",
+   "sha256": "6616eac5e39f15a31e0c3b3a671d4278e0d20f1168a89a4f68fd670ce5201a62"
+  },
+  {
+   "bytes": 7275,
+   "path": "raw/session-02/blurry_small.jpg/current_diagnostics.json",
+   "sha256": "2b61c2265b91c4c6bf26ee4a396543c8c9ccef6a5feee65ca88e9a8e0c8eca62"
+  },
+  {
+   "bytes": 7539,
+   "path": "raw/session-02/blurry_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "7808a261e6d17b11d7c2f19168eb11c2eb8cc6945ebffb4e24b67695b9940ac9"
+  },
+  {
+   "bytes": 4847,
+   "path": "raw/session-02/blurry_small.jpg/current_quality.json",
+   "sha256": "122489775aa0730ad23616bfd506ab5c434e5bfa3924b2e9ba9b3f108751903f"
+  },
+  {
+   "bytes": 943,
+   "path": "raw/session-02/photo_1600x1200.jpg/baseline_quality.json",
+   "sha256": "62768a27ba372617db46a03fb21d9fa5f4de5c3e4303ed14ff6783221bd64c7e"
+  },
+  {
+   "bytes": 1912,
+   "path": "raw/session-02/photo_1600x1200.jpg/current_diagnostics.json",
+   "sha256": "68e7fdcd76c8827468c87990e06abef2068067bd5d367da2eb9b57b08b9e8b8c"
+  },
+  {
+   "bytes": 1960,
+   "path": "raw/session-02/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+   "sha256": "8a6cdaf91ffa46893b361ba3bee18be0001d51526ef60957da2f185b567c7e86"
+  },
+  {
+   "bytes": 1302,
+   "path": "raw/session-02/photo_1600x1200.jpg/current_quality.json",
+   "sha256": "5188359307284314537bfd130ce2c8b16026d5569afa53b4bcf9521b63d77e5c"
+  },
+  {
+   "bytes": 1010,
+   "path": "raw/session-02/photo_4032x3024_exif6.jpg/baseline_quality.json",
+   "sha256": "c39a63ee43d7eebd1f7bb864d5795d0ea0d15176fa59c99c6280349436fd6a1c"
+  },
+  {
+   "bytes": 2036,
+   "path": "raw/session-02/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+   "sha256": "dc9af86938612349a4742c87cab6745ed9952ab59624e935b532ddb48b4b7b97"
+  },
+  {
+   "bytes": 2077,
+   "path": "raw/session-02/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+   "sha256": "4f2c3ace4629bff71a615136c6ff95edf29dffe37eb48a7a6b127d5c9273f604"
+  },
+  {
+   "bytes": 1408,
+   "path": "raw/session-02/photo_4032x3024_exif6.jpg/current_quality.json",
+   "sha256": "cbd15820443cb0a2bee1de8285ad8697a9a2b2327234773762d1ef41d7aac49d"
+  },
+  {
+   "bytes": 8137,
+   "path": "raw/session-02/pipeline/blurry_small.jpg.json",
+   "sha256": "aad97f791607c37ee81ca28ad04caad59e48a4d5bdeee36bd42ffd6fb5c8b2bd"
+  },
+  {
+   "bytes": 660,
+   "path": "raw/session-02/pipeline/photo_1600x1200.jpg.json",
+   "sha256": "ca19708d308db6745fbe6c6a6db1647363f6a2fb2a74f73359cb5e9c9e18a9bc"
+  },
+  {
+   "bytes": 724,
+   "path": "raw/session-02/pipeline/photo_4032x3024_exif6.jpg.json",
+   "sha256": "b630a4c403456f8c5f3ddb03a6f358e99222b5453c0f803824df177feb66501c"
+  },
+  {
+   "bytes": 8162,
+   "path": "raw/session-02/pipeline/sharp_small.jpg.json",
+   "sha256": "55eb91925920e0edf3ddd6fafc65d483428efd2ed60a24e272cc39c757b0fe9d"
+  },
+  {
+   "bytes": 3277,
+   "path": "raw/session-02/sharp_small.jpg/baseline_quality.json",
+   "sha256": "a372fd113ba9db4d133732b468c2920d33f2c7d4787920faf8c90c0b19796c08"
+  },
+  {
+   "bytes": 7223,
+   "path": "raw/session-02/sharp_small.jpg/current_diagnostics.json",
+   "sha256": "8d33e0b74501adaae1f3d629950524884fdfaac523119f71b457bfa75bbe89d4"
+  },
+  {
+   "bytes": 7520,
+   "path": "raw/session-02/sharp_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "832103fc6361a48c1145f03f113634e641de4634653a3f9466e2c20a1e418e01"
+  },
+  {
+   "bytes": 4838,
+   "path": "raw/session-02/sharp_small.jpg/current_quality.json",
+   "sha256": "a030e7b93b2e0de08fa6d7d82e810cd94d78c48348a6726090c5323ed7e817aa"
+  },
+  {
+   "bytes": 9161,
+   "path": "raw/session-03.json",
+   "sha256": "82170a039cc7119923e0daed03f1338faf7a8247d39e97c134d9b4537ee3d410"
+  },
+  {
+   "bytes": 4180,
+   "path": "raw/session-03.txt",
+   "sha256": "abc0e0782d998fb0945dbf9ac8c6b7fc76edbe5582ed09f47d5e5d2b895c3a05"
+  },
+  {
+   "bytes": 3278,
+   "path": "raw/session-03/blurry_small.jpg/baseline_quality.json",
+   "sha256": "e29bb1bdbbf8a45a1f517b912f29eeb2a0b22696a431e36151d9902586c772bd"
+  },
+  {
+   "bytes": 7304,
+   "path": "raw/session-03/blurry_small.jpg/current_diagnostics.json",
+   "sha256": "31ee37df3b71c799c789e6431f4fb439a01108cc115b95bba70dbc554188b032"
+  },
+  {
+   "bytes": 7549,
+   "path": "raw/session-03/blurry_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "c5d7003a6634c28342b39432796b43a35abc596dae0ba041894b75cb43c5b133"
+  },
+  {
+   "bytes": 4848,
+   "path": "raw/session-03/blurry_small.jpg/current_quality.json",
+   "sha256": "1f241c8502ff7932579340ee2a2ad42254337ac6f87787149fa976f111007f92"
+  },
+  {
+   "bytes": 943,
+   "path": "raw/session-03/photo_1600x1200.jpg/baseline_quality.json",
+   "sha256": "8c3a11a0ff2b771cbf6a16118842e069033a6c036e33d79ab0ffc0ae0334dca3"
+  },
+  {
+   "bytes": 1912,
+   "path": "raw/session-03/photo_1600x1200.jpg/current_diagnostics.json",
+   "sha256": "16f0ef95c1a84c0fb0526ceed51e654e976c9be30b8bc9ddd25ffeee05b9d1a6"
+  },
+  {
+   "bytes": 1960,
+   "path": "raw/session-03/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+   "sha256": "4ed957fa1b4a1262353afa165d7787fb75e2fb644f4e1c0d934f2e24bd609fda"
+  },
+  {
+   "bytes": 1311,
+   "path": "raw/session-03/photo_1600x1200.jpg/current_quality.json",
+   "sha256": "cb695731c6a116a127b51ee1057d22914257bf9f883d73d34ed8b7c034d2956e"
+  },
+  {
+   "bytes": 1010,
+   "path": "raw/session-03/photo_4032x3024_exif6.jpg/baseline_quality.json",
+   "sha256": "0f79e9bd3f6b3b1d915e3c57f57547542480eb003490bf97c8250a17c09854ad"
+  },
+  {
+   "bytes": 2015,
+   "path": "raw/session-03/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+   "sha256": "5928a4912e9e68eb89df8f6c32389d3b38acc9831a2c2257977bf8b707791e26"
+  },
+  {
+   "bytes": 2079,
+   "path": "raw/session-03/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+   "sha256": "efd0d74192cb46847d0fa8a34b8c997b2d47db7aa4cc29a7e5bc3ea080aa12aa"
+  },
+  {
+   "bytes": 1413,
+   "path": "raw/session-03/photo_4032x3024_exif6.jpg/current_quality.json",
+   "sha256": "c9761201f40c702d7eb01d26914c85c786c52f06b09315018bc4da2b8f1b2fb9"
+  },
+  {
+   "bytes": 8179,
+   "path": "raw/session-03/pipeline/blurry_small.jpg.json",
+   "sha256": "77ebe6df1f0cb6e2bd25c545944b6b4f40ddaad8f6478abf33fe764d09d4db8e"
+  },
+  {
+   "bytes": 661,
+   "path": "raw/session-03/pipeline/photo_1600x1200.jpg.json",
+   "sha256": "495472340c547339720b93da9f7e96241ff181f8a066fc44d51a85192a1faa9f"
+  },
+  {
+   "bytes": 732,
+   "path": "raw/session-03/pipeline/photo_4032x3024_exif6.jpg.json",
+   "sha256": "e7b6a21772217ee92375df5a9c174569b74584b64d8ea3f9ffcc15891913d1a5"
+  },
+  {
+   "bytes": 8181,
+   "path": "raw/session-03/pipeline/sharp_small.jpg.json",
+   "sha256": "b1f1ee063cfe0f5429efced50af643c9b4e749fdddcdafb5ca3831401861a68e"
+  },
+  {
+   "bytes": 3277,
+   "path": "raw/session-03/sharp_small.jpg/baseline_quality.json",
+   "sha256": "76ade776b23e5c6669719e5c64698f3434306f0fbfdd40c73ccd039059d68f62"
+  },
+  {
+   "bytes": 7326,
+   "path": "raw/session-03/sharp_small.jpg/current_diagnostics.json",
+   "sha256": "26259d8161336e9cfe3d25a32dde0311c3fe81d3f2217923b9880b3db8bf7950"
+  },
+  {
+   "bytes": 7563,
+   "path": "raw/session-03/sharp_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "563f9c0f573e282548cd15eff6c30a9a01c21493911fbdd95bc68fa92f31a888"
+  },
+  {
+   "bytes": 4895,
+   "path": "raw/session-03/sharp_small.jpg/current_quality.json",
+   "sha256": "d663df97725c0b9c127fd31500061240002b9684e3b67fbb4b734998bafe3c22"
+  },
+  {
+   "bytes": 9248,
+   "path": "raw/session-04.json",
+   "sha256": "e1bca6b4b1da0b54f51a22a7aa60bea4fca3836ad7eedfa33055da983f0f73b6"
+  },
+  {
+   "bytes": 4180,
+   "path": "raw/session-04.txt",
+   "sha256": "fc7422f50e03d8ebc69a51b428649836523418af17fb3a997dc5e02802310466"
+  },
+  {
+   "bytes": 3278,
+   "path": "raw/session-04/blurry_small.jpg/baseline_quality.json",
+   "sha256": "5ecb70a315cd67d18989df0bfdcd3c6e1496f8d8a97e0e0d996d841347fa20ac"
+  },
+  {
+   "bytes": 7282,
+   "path": "raw/session-04/blurry_small.jpg/current_diagnostics.json",
+   "sha256": "ed7b0c3b09e51e05a6671fd8e17d97f6f5ea2207fe0d40c5d938a6db3a9e7629"
+  },
+  {
+   "bytes": 7532,
+   "path": "raw/session-04/blurry_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "61e234d2a9a7911af8345b6fe8b01326c2d2367dae9eb8cd4c927a9b29ffa8d9"
+  },
+  {
+   "bytes": 4832,
+   "path": "raw/session-04/blurry_small.jpg/current_quality.json",
+   "sha256": "af395716312dbad01da5b4e46d5bcae79901ff210f493d7e7db4c5a537a5bced"
+  },
+  {
+   "bytes": 943,
+   "path": "raw/session-04/photo_1600x1200.jpg/baseline_quality.json",
+   "sha256": "e3fc28f32f04975d7ab44f5775563c0d2b9bfa8ceafea968cb201a27868f3fc9"
+  },
+  {
+   "bytes": 1917,
+   "path": "raw/session-04/photo_1600x1200.jpg/current_diagnostics.json",
+   "sha256": "919586575deb0d4c6c43459091baae2dd025cae593122fce0c0a072d47364180"
+  },
+  {
+   "bytes": 1960,
+   "path": "raw/session-04/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+   "sha256": "b20f083d40d8e24891bed9b0756295e7923a5410fb0721da870e4c32fda0a10f"
+  },
+  {
+   "bytes": 1286,
+   "path": "raw/session-04/photo_1600x1200.jpg/current_quality.json",
+   "sha256": "e09f3b2a01262e001d6b54d8bb88b342824250811eb9e1783b89ecf5ab6f0846"
+  },
+  {
+   "bytes": 1010,
+   "path": "raw/session-04/photo_4032x3024_exif6.jpg/baseline_quality.json",
+   "sha256": "715113dc3174458ea6bd1d3c72176672e9bfc5732c10e94f6393b17c78330f16"
+  },
+  {
+   "bytes": 2050,
+   "path": "raw/session-04/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+   "sha256": "71def3fbc5829bf192339957c3a9a492e168af0cbdad0af6744703b3d5f7a4e2"
+  },
+  {
+   "bytes": 2067,
+   "path": "raw/session-04/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+   "sha256": "c8fc985aaefac076fb4318a699b07d153d4c11af566fa1c00d21f019181d644c"
+  },
+  {
+   "bytes": 1427,
+   "path": "raw/session-04/photo_4032x3024_exif6.jpg/current_quality.json",
+   "sha256": "37c2ea908620333b394982e6aafaf5d5ad914654470518f7586dafdeaf02c214"
+  },
+  {
+   "bytes": 8161,
+   "path": "raw/session-04/pipeline/blurry_small.jpg.json",
+   "sha256": "e9417851091bf053aae7bbcb4fa8384c50c952cadffc4d0d1d7f5504f617e3d3"
+  },
+  {
+   "bytes": 650,
+   "path": "raw/session-04/pipeline/photo_1600x1200.jpg.json",
+   "sha256": "be3e435bfbea0f9a4944d02ff7b4ba2beccccf419c6c49ce8c4e6b4c15b6f93f"
+  },
+  {
+   "bytes": 730,
+   "path": "raw/session-04/pipeline/photo_4032x3024_exif6.jpg.json",
+   "sha256": "670f2d50e824ae7d8350a9b153511c80536890297af503b0f1f1d85d6e8344c4"
+  },
+  {
+   "bytes": 8175,
+   "path": "raw/session-04/pipeline/sharp_small.jpg.json",
+   "sha256": "38e24beff58abe8873c570fbf1581ea20cd5a7e08d50f6d04d309afdec2f4652"
+  },
+  {
+   "bytes": 3277,
+   "path": "raw/session-04/sharp_small.jpg/baseline_quality.json",
+   "sha256": "221195ca649614d3113d1c5530facf816133b1098fc005c6fe70025d9985e0b2"
+  },
+  {
+   "bytes": 7312,
+   "path": "raw/session-04/sharp_small.jpg/current_diagnostics.json",
+   "sha256": "a225b21332bf423e03690049a2b84c182ae587369f320e0842d5202db363c23f"
+  },
+  {
+   "bytes": 7551,
+   "path": "raw/session-04/sharp_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "f2240b904d04d522ce7c99ce8cf9768e76e69fc5055e9cd04e63f20f2414cc6b"
+  },
+  {
+   "bytes": 4860,
+   "path": "raw/session-04/sharp_small.jpg/current_quality.json",
+   "sha256": "9fdbb0ab04f473f355cf58f42440e8547c5bb77a99fe069b207a16cdb58a0e30"
+  },
+  {
+   "bytes": 9175,
+   "path": "raw/session-05.json",
+   "sha256": "e7e5c45e02898fbb07266f935775c48e4da0a24d45b2268c4b0027dd216f9b4e"
+  },
+  {
+   "bytes": 4180,
+   "path": "raw/session-05.txt",
+   "sha256": "a0e368c05b5d5747b9c989ff63173c8fcf7bad12ebfab34b0a3d034b0a2f64a9"
+  },
+  {
+   "bytes": 3278,
+   "path": "raw/session-05/blurry_small.jpg/baseline_quality.json",
+   "sha256": "79bd55faf69b2689ed8d8363b6a822c1d08cc53027e2db3b78432df03ee8013a"
+  },
+  {
+   "bytes": 7295,
+   "path": "raw/session-05/blurry_small.jpg/current_diagnostics.json",
+   "sha256": "e3120b5e512862b9ce0900e2a89a2f53e8bd48e4a8e381e06730b66b6bab105d"
+  },
+  {
+   "bytes": 7527,
+   "path": "raw/session-05/blurry_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "5dc747d61ec4fbdc3362b0b262c78f92165de5e47b0b6f1df65dbddccc80e584"
+  },
+  {
+   "bytes": 4888,
+   "path": "raw/session-05/blurry_small.jpg/current_quality.json",
+   "sha256": "36aa94d936b80d38612cac5fd6a2f77c87115f0ffa67f826f60af7ee37a4adc3"
+  },
+  {
+   "bytes": 943,
+   "path": "raw/session-05/photo_1600x1200.jpg/baseline_quality.json",
+   "sha256": "99e9412aff61e57cbf4669a0b3655b53133abedc57fd456c8c1e46f9b2393099"
+  },
+  {
+   "bytes": 1920,
+   "path": "raw/session-05/photo_1600x1200.jpg/current_diagnostics.json",
+   "sha256": "17c3861c0a2c25b8d656c91b35c9296af49bf50930ed54c530686f708e198e68"
+  },
+  {
+   "bytes": 1960,
+   "path": "raw/session-05/photo_1600x1200.jpg/current_diagnostics_hist64.json",
+   "sha256": "a5a775778325f1cef75142a7a5abe11497dd4178beef6e8408baeafb8614ba67"
+  },
+  {
+   "bytes": 1295,
+   "path": "raw/session-05/photo_1600x1200.jpg/current_quality.json",
+   "sha256": "906af68eb32930bede3234f8ea0890ed2508bb8fa9613c5720e5ab0252225817"
+  },
+  {
+   "bytes": 1010,
+   "path": "raw/session-05/photo_4032x3024_exif6.jpg/baseline_quality.json",
+   "sha256": "a43c3074cf329cc180536e7f49507a891738b9a2cd033626b204d7d67df751d8"
+  },
+  {
+   "bytes": 2016,
+   "path": "raw/session-05/photo_4032x3024_exif6.jpg/current_diagnostics.json",
+   "sha256": "16bb899e23fac59b377dafbaf5dc0f572b736248d7ca3eda089cdd4b9e0717c5"
+  },
+  {
+   "bytes": 2086,
+   "path": "raw/session-05/photo_4032x3024_exif6.jpg/current_diagnostics_hist64.json",
+   "sha256": "6ed478208d54bbcf532cea8daad90e5ae6901f8c4dd876fbd49439aca23f628c"
+  },
+  {
+   "bytes": 1406,
+   "path": "raw/session-05/photo_4032x3024_exif6.jpg/current_quality.json",
+   "sha256": "688c1bdc297d144b028a5cdd48167c913c9c7bea3903c7a93003937d8590d105"
+  },
+  {
+   "bytes": 8216,
+   "path": "raw/session-05/pipeline/blurry_small.jpg.json",
+   "sha256": "86186b65dc17c0bb39f09138c2805b881ec20dc107a04d3195b373292d15f526"
+  },
+  {
+   "bytes": 662,
+   "path": "raw/session-05/pipeline/photo_1600x1200.jpg.json",
+   "sha256": "9b4fc5ff75f518cd75a1ba0c050a2d8b7fced046911b6cc2ac0a2d28a2df06ae"
+  },
+  {
+   "bytes": 723,
+   "path": "raw/session-05/pipeline/photo_4032x3024_exif6.jpg.json",
+   "sha256": "7a3f73fbfec673078008612f70a5461a0fbeb5f6ee02f6e6cac6765905a4ca0a"
+  },
+  {
+   "bytes": 8137,
+   "path": "raw/session-05/pipeline/sharp_small.jpg.json",
+   "sha256": "4e93d77ad7180f2c797af2c8c69a6c0eedeee7dbce087b7ee4fde3683833578c"
+  },
+  {
+   "bytes": 3277,
+   "path": "raw/session-05/sharp_small.jpg/baseline_quality.json",
+   "sha256": "4c01cdf17e05798c796366b99085ad28bc4fbe9d7d358c6f2508a16d26e9e39b"
+  },
+  {
+   "bytes": 7252,
+   "path": "raw/session-05/sharp_small.jpg/current_diagnostics.json",
+   "sha256": "74fb0adc122483e0eddab628d7d99a1573517fa75a3aea55ca017e8f46cf25c3"
+  },
+  {
+   "bytes": 7521,
+   "path": "raw/session-05/sharp_small.jpg/current_diagnostics_hist64.json",
+   "sha256": "6329256cd4ff7ca8d9e115774903b28e67344371a47ca9434f7c062ccc834399"
+  },
+  {
+   "bytes": 4863,
+   "path": "raw/session-05/sharp_small.jpg/current_quality.json",
+   "sha256": "1ba14579eb42ed72fb2111678e52fefaf3588197feb1b8311efb11e7f016daf5"
+  },
+  {
+   "bytes": 1010,
+   "path": "raw/tests.txt",
+   "sha256": "fae28137db95323dc4b6ce7402df5f9c9a09e1496465d53b3db32a7602596ffa"
+  }
+ ],
+ "schema": "bench-meta/1",
+ "session_date": "2026-11-06",
+ "source": {
+  "branch": "HEAD",
+  "describe": "a0834d4",
+  "dirty": false,
+  "modified": [],
+  "repo": "BrianKYildirim/image-quality-gate",
+  "sha": "a0834d44502febb6c68b9e8f6f6761377a7e1d6c",
+  "untracked": []
+ },
+ "tag": null,
+ "timer": {
+  "monotonic": true,
+  "name": "time.perf_counter_ns (clock_gettime(CLOCK_MONOTONIC))",
+  "overhead_note": "not subtracted; a request takes milliseconds",
+  "overhead_ns": null,
+  "resolution_ns": 1.0
+ },
+ "toolchain": {
+  "build": "3.11.18 (main, Oct 26 2026, 14:05:07) [Clang 23.1.3 ]",
+  "executable_name": "python",
+  "implementation": "cpython",
+  "packages": {
+   "annotated-doc": "0.0.5",
+   "annotated-types": "0.8.0",
+   "anyio": "4.16.0",
+   "black": "24.8.0",
+   "certifi": "2026.10.23",
+   "click": "8.5.0",
+   "contourpy": "1.3.3",
+   "cycler": "0.12.1",
+   "fastapi": "0.161.1",
+   "fonttools": "4.68.0",
+   "h11": "0.16.0",
+   "httpcore": "1.0.9",
+   "httptools": "0.9.0",
+   "httpx": "0.27.2",
+   "idna": "3.20",
+   "iniconfig": "2.3.1",
+   "kiwisolver": "1.5.1",
+   "matplotlib": "3.11.2",
+   "mypy": "1.11.2",
+   "mypy-extensions": "1.2.0",
+   "numpy": "2.4.6",
+   "opencv-python-headless": "5.0.0.93",
+   "opentelemetry-api": "1.45.2",
+   "packaging": "26.3",
+   "pathspec": "1.1.1",
+   "pillow": "13.0.0",
+   "platformdirs": "4.14.5",
+   "pluggy": "1.7.0",
+   "prometheus-client": "0.26.0",
+   "prometheus-fastapi-instrumentator": "8.1.0",
+   "pydantic": "2.14.3",
+   "pydantic-core": "2.50.4",
+   "pydantic-settings": "2.16.2",
+   "pyparsing": "3.3.3",
+   "pytest": "8.3.2",
+   "python-dateutil": "4.0.0",
+   "python-dotenv": "1.2.4",
+   "python-multipart": "0.0.33",
+   "pyyaml": "6.0.3",
+   "ruff": "0.6.9",
+   "sniffio": "1.3.1",
+   "starlette": "1.10.0",
+   "typing-extensions": "4.16.0",
+   "typing-inspection": "0.4.5",
+   "tzdata": "2026.6",
+   "uvicorn": "0.54.0",
+   "uvloop": "0.23.0",
+   "watchfiles": "1.3.0",
+   "websockets": "17.4"
+  },
+  "version": "3.11.18"
+ },
+ "validity": {
+  "reasons": [],
+  "runs": [
+   {
+    "ac_line": true,
+    "busy_source": "WSL VM /proc/stat (not the Windows host)",
+    "cpu_busy_pct": 0.0,
+    "dir": "raw/session-01",
+    "file": "raw/session-01.json",
+    "reasons": [],
+    "run": 1,
+    "step": "session",
+    "valid": true,
+    "waited_s": 1.4
+   },
+   {
+    "ac_line": true,
+    "busy_source": "WSL VM /proc/stat (not the Windows host)",
+    "cpu_busy_pct": 0.0,
+    "dir": "raw/session-02",
+    "file": "raw/session-02.json",
+    "reasons": [],
+    "run": 2,
+    "step": "session",
+    "valid": true,
+    "waited_s": 1.4
+   },
+   {
+    "ac_line": true,
+    "busy_source": "WSL VM /proc/stat (not the Windows host)",
+    "cpu_busy_pct": 0.0,
+    "dir": "raw/session-03",
+    "file": "raw/session-03.json",
+    "reasons": [],
+    "run": 3,
+    "step": "session",
+    "valid": true,
+    "waited_s": 1.4
+   },
+   {
+    "ac_line": true,
+    "busy_source": "WSL VM /proc/stat (not the Windows host)",
+    "cpu_busy_pct": 0.0,
+    "dir": "raw/session-04",
+    "file": "raw/session-04.json",
+    "reasons": [],
+    "run": 4,
+    "step": "session",
+    "valid": true,
+    "waited_s": 1.5
+   },
+   {
+    "ac_line": true,
+    "busy_source": "WSL VM /proc/stat (not the Windows host)",
+    "cpu_busy_pct": 0.38,
+    "dir": "raw/session-05",
+    "file": "raw/session-05.json",
+    "reasons": [],
+    "run": 5,
+    "step": "session",
+    "valid": true,
+    "waited_s": 1.4
+   },
+   {
+    "ac_line": true,
+    "busy_source": "WSL VM /proc/stat (not the Windows host)",
+    "cpu_busy_pct": 0.0,
+    "file": "raw/limits.json",
+    "reasons": [],
+    "step": "limits_probe",
+    "valid": true,
+    "waited_s": 1.4
+   }
+  ],
+  "tests": {
+   "failed": 0,
+   "passed": 130,
+   "skipped": 0,
+   "total": 130
+  },
+  "valid": true
+ },
+ "workload": {
+  "app_tree": {
+   "e61761fb933d03f8d484ce124d708fedb8932152": "0b1a10b852d5fbd42cce394e62a0512d5ca4feea",
+   "equal": true,
+   "head": "0b1a10b852d5fbd42cce394e62a0512d5ca4feea"
+  },
+  "baseline_method": "git archive <baseline_sha> extracted with tarfile into a temporary directory (<baseline>)",
+  "baseline_ref": "8e47d744b7cc0db618fb95c35707e5a258b897cd",
+  "baseline_sha": "8e47d744b7cc0db618fb95c35707e5a258b897cd",
+  "limits_runs": 5,
+  "pairs": 400,
+  "photo_rounds": 60,
+  "rounds": 300,
+  "sessions": 5,
+  "smoke": false,
+  "steps": [
+   [
+    "python",
+    "scripts/bench_quality.py",
+    "--baseline",
+    "<baseline>",
+    "--rounds",
+    "300",
+    "--photo-rounds",
+    "60",
+    "--pairs",
+    "400",
+    "--json",
+    "raw/session-NN.json",
+    "--raw-dir",
+    "raw/session-NN",
+    "--uvicorn-loop",
+    "auto"
+   ],
+   [
+    "python",
+    "bench/limits_probe.py",
+    "--baseline",
+    "<baseline>",
+    "--runs",
+    "5",
+    "--out",
+    "raw/limits.json",
+    "--uvicorn-loop",
+    "auto"
+   ],
+   [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+   ]
+  ],
+  "uvicorn_loop": "auto",
+  "validity": {
+   "max_busy_pct": 10.0,
+   "quiet_timeout_s": 120.0
+  },
+  "warmup_rounds": 3
+ }
+}

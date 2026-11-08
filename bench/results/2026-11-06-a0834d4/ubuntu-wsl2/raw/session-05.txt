@@ -1,0 +1,50 @@
+blurry_small.jpg done
+sharp_small.jpg done
+photo_1600x1200.jpg done
+photo_4032x3024_exif6.jpg done
+
+Environment: platform=Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43, cpu=11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz, cpu_count=8, python=3.11.18, numpy=2.4.6, opencv=5.0.0, pillow=13.0.0, fastapi=0.161.1, starlette=1.10.0, pydantic=2.14.3, uvicorn=0.54.0, loadavg_1m_start_end=1.02/1.12
+
+End to end over HTTP (ms). Paired Δ = variant - baseline /quality, per round.
+
+blurry_small.jpg (3589 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                     300     2.852     2.507     3.667     2.248     6.044      +0.000 [+0.000, +0.000]        -
+  current /quality                      300     2.811     2.520     3.701     2.299     5.945      +0.031 [-0.200, +0.356]        -
+  current /quality/diagnostics          300     3.315     2.965     4.468     2.698     7.108      +0.547 [+0.306, +0.925]    1.498
+  current /quality/diagnostics+hist64   300     4.606     3.967     6.265     3.695    10.023      +1.752 [+1.375, +2.778]    2.775
+  /quality body identical to baseline: yes
+
+sharp_small.jpg (2294 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                     300     2.584     2.388     3.065     2.104     5.289      +0.000 [+0.000, +0.000]        -
+  current /quality                      300     2.591     2.411     2.949     2.076     5.010      +0.010 [-0.244, +0.231]        -
+  current /quality/diagnostics          300     3.042     2.867     3.476     2.603     6.079      +0.492 [+0.250, +0.715]    1.376
+  current /quality/diagnostics+hist64   300     4.148     3.855     4.938     3.599     9.318      +1.615 [+1.375, +2.144]    2.494
+  /quality body identical to baseline: yes
+
+photo_1600x1200.jpg (278661 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                      60    24.343    23.903    25.574    23.551    28.431      +0.000 [+0.000, +0.000]        -
+  current /quality                       60    24.995    24.472    26.014    24.067    31.469      +0.564 [-0.323, +1.513]        -
+  current /quality/diagnostics           60    36.348    35.869    38.930    35.213    43.529   +11.994 [+11.142, +14.188]   32.982
+  current /quality/diagnostics+hist64    60    53.232    52.058    56.615    51.220    60.181   +28.606 [+27.599, +31.802]   49.848
+  /quality body identical to baseline: yes
+
+photo_4032x3024_exif6.jpg (1608635 bytes)
+  variant                                 n    median       p25       p75        p5       p95          paired Δ [p25, p75]  handler
+  baseline /quality                      60   237.548   235.217   241.672   231.802   259.384      +0.000 [+0.000, +0.000]        -
+  current /quality                       60   238.784   234.934   243.470   232.074   256.680      +0.838 [-3.909, +5.757]        -
+  current /quality/diagnostics           60   240.664   237.161   244.400   235.436   257.377      +2.665 [-2.094, +6.390]  235.447
+  current /quality/diagnostics+hist64    60   258.451   255.829   264.632   254.069   270.272   +20.442 [+17.137, +27.021]  253.236
+  /quality body identical to baseline: yes
+'handler' is the median server-reported handler_total_ns (diagnostics only).
+
+Pipeline A/B (in-process, no HTTP; baseline vs current /quality path)
+  asset                        pairs   baseline    current  Δ median     Δ p25     Δ p75
+  blurry_small.jpg               400      522.8      540.2     +18.1      -2.2     +37.2
+  sharp_small.jpg                400      505.0      524.8     +16.9      +2.7     +32.0
+  photo_1600x1200.jpg             20    16463.5    16828.0     +75.3    -327.0    +429.4
+  photo_4032x3024_exif6.jpg       20   215677.6   216536.3    +303.8   -2422.6   +4431.3
+  Times in µs; Δ = current - baseline, per alternating pair.
+Wrote <repo>/bench/results/2026-11-06-a0834d4/ubuntu-wsl2/raw/session-05.json
