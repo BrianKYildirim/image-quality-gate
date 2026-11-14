@@ -1,0 +1,59 @@
+{
+ "command": "node tools/iqg-parity.mjs --measure --upstream <image-quality-gate> --write-upstream",
+ "date": "2026-11-14",
+ "measured_over": {
+  "cases": 26,
+  "cases_sha256": "8076dbf791b4853cde7be1a6b3da0beaee13e662b2cec6bc0c1d586e6610cf0f"
+ },
+ "pyodide": {
+  "libraries": {
+   "libjpeg": "9.0",
+   "libjpeg_turbo": null,
+   "numpy": "2.4.6",
+   "opencv": "4.11.0",
+   "pillow": "12.2.0",
+   "pydantic": "2.12.5",
+   "python": "3.14.2"
+  },
+  "python": "3.14.2",
+  "version": "314.0.7"
+ },
+ "schema": "iqg-parity-tolerances/1",
+ "tolerances": {
+  "blur_score": {
+   "measured_max": 0.00420153578249101,
+   "rationale": "Measured max 0.00420153578249101 (relative, photo_4032x3024_exif6) over 26 cases; nonzero only in 9 YCbCr JPEG cases (exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200, photo_4032x3024_exif6); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0).",
+   "rel": 0.01
+  },
+  "brightness": {
+   "abs": 0.01,
+   "measured_max": 0.002695312499994884,
+   "rationale": "Measured max 0.002695312499994884 (absolute, exif2) over 26 cases; nonzero only in 9 YCbCr JPEG cases (exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200, photo_4032x3024_exif6); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0)."
+  },
+  "brightness_std": {
+   "abs": 0.01,
+   "measured_max": 0.0026712170230069887,
+   "rationale": "Measured max 0.0026712170230069887 (absolute, photo_4032x3024_exif6) over 26 cases; nonzero only in 9 YCbCr JPEG cases (exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200, photo_4032x3024_exif6); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0)."
+  },
+  "gray_extremes": {
+   "abs": 2,
+   "measured_max": 1,
+   "rationale": "Measured max 1 (absolute, photo_4032x3024_exif6) over 26 cases; nonzero only in 1 YCbCr JPEG case (photo_4032x3024_exif6); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0)."
+  },
+  "histogram_w1_bins": {
+   "abs": 0.1,
+   "measured_max": 0.047171426725569246,
+   "rationale": "Measured max 0.047171426725569246 (native bin widths, photo_4032x3024_exif6) over 26 cases; nonzero only in 9 YCbCr JPEG cases (exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200, photo_4032x3024_exif6); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0)."
+  },
+  "laplacian_extremes": {
+   "abs": 4,
+   "measured_max": 2,
+   "rationale": "Measured max 2 (absolute, photo_4032x3024_exif6) over 26 cases; nonzero only in 1 YCbCr JPEG case (photo_4032x3024_exif6); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0)."
+  },
+  "laplacian_mean": {
+   "abs": 0.00001,
+   "measured_max": 0.0000032552083333303727,
+   "rationale": "Measured max 0.0000032552083333303727 (absolute, exif2) over 26 cases; nonzero only in 8 YCbCr JPEG cases (exif2, exif3, exif4, exif5, exif6, exif7, exif8, photo_1600x1200); identical: the other YCbCr JPEG cases (blurry_small, blurry_small_overrides, photo_4032x3024_exif6, sharp_small, strivoimg1), JPEG CMYK (1), PNG L (2), PNG RGB (2), PNG P (1), PNG RGBA (1). Likely cause: different JPEG decoder and library versions (native libjpeg-turbo 3.2.0, OpenCV 5.0.0, Pillow 13.0.0; Pyodide IJG libjpeg 9.0, OpenCV 4.11.0, Pillow 12.2.0)."
+  }
+ }
+}

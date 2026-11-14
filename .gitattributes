@@ -1,1 +1,8 @@
 bench/results/** text eol=lf
+# The parity fixtures are hashed in tests/parity/golden/meta.json and vendored
+# byte for byte by the portfolio, so they are never converted; the goldens and
+# the case list must stay LF on every checkout so their hashes hold.
+tests/parity/fixtures/** -text
+tests/parity/golden/** text eol=lf
+tests/parity/cases.json text eol=lf
+tests/parity/tolerances.json text eol=lf

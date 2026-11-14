@@ -1,0 +1,7 @@
+{
+ "error": {
+  "cause": "OSError",
+  "detail": "Invalid image data",
+  "status": 400
+ }
+}

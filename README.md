@@ -422,6 +422,10 @@ There are <!-- claim:iqg.tests.ubuntu-wsl2 -->130 tests (many are parameterized 
 
 CI (GitHub Actions, Python 3.11) runs `ruff check .`, `black --check .`, `mypy app` and `pytest -q`. The tests were also checked against deliberately broken copies of the code (for example a `<` instead of `<=`, or a re-enabled truncated-image flag), and each break made tests fail.
 
+## Browser parity
+
+`app/services/pipeline.py` is the FastAPI-free entry both routes run through, and the same code the [portfolio](https://github.com/BrianKYildirim/portfolio) runs in the browser through Pyodide. `tests/parity/` holds the fixture images, the intended outcome of each case and the native golden answers the portfolio compares its Pyodide results against; only `tests/parity/run_native.py` writes the goldens. See [tests/parity/README.md](tests/parity/README.md).
+
 ## Performance
 
 `scripts/bench_quality.py` compares this code with an older version over real HTTP. It starts one single-worker uvicorn server per variant and sends each round of requests to every variant in a shuffled order. It reports per-request percentiles, plus the *paired* difference per round, which cancels out background load on a shared machine. It also times the image pipeline in-process, alternating the old and new code call by call.
