@@ -75,6 +75,11 @@ def evaluate(blur_score: float, bright: float, thr: Thresholds) -> tuple[Check, 
     )
 
 
+def combine(checks: tuple[Check, ...]) -> bool:
+    """is_ok is the conjunction of all checks."""
+    return all(check.passed for check in checks)
+
+
 def assess_traced(
     gray: np.ndarray, thr: Thresholds, timer: StageTimer, keep_laplacian: bool = False
 ) -> Assessment:
@@ -90,7 +95,7 @@ def assess_traced(
         bright = brightness(gray)
     with timer.stage("decision"):
         checks = evaluate(blur_score, bright, thr)
-        is_ok = all(check.passed for check in checks)
+        is_ok = combine(checks)
     return Assessment(blur_score, bright, checks, is_ok, kept)
 
 
