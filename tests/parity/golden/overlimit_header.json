@@ -1,0 +1,7 @@
+{
+ "error": {
+  "cause": "ImageTooLarge",
+  "detail": "Invalid image data",
+  "status": 400
+ }
+}

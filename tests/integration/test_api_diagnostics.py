@@ -333,14 +333,16 @@ def test_errors_match_the_default_endpoint(settings_env):
 def test_rejections_happen_before_decoding(settings_env, monkeypatch):
     settings_env(env={"MAX_UPLOAD_MB": "1"})
     client = TestClient(app)
+    from app.services import pipeline
+
     calls = []
-    real = routes_quality.load_and_normalize_traced
+    real = pipeline.load_and_normalize_traced
 
     def spy(*args, **kwargs):
         calls.append(args)
         return real(*args, **kwargs)
 
-    monkeypatch.setattr(routes_quality, "load_and_normalize_traced", spy)
+    monkeypatch.setattr(pipeline, "load_and_normalize_traced", spy)
     for path in ("/quality", "/quality/diagnostics"):
         assert (
             post(client, SHARP, path=path, content_type="text/plain").status_code == 415

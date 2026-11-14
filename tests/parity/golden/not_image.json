@@ -1,0 +1,7 @@
+{
+ "error": {
+  "cause": null,
+  "detail": "Unsupported media type",
+  "status": 415
+ }
+}

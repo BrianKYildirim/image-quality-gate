@@ -1,0 +1,31 @@
+{
+ "bins": 64,
+ "cases": [
+  {"name": "blurry_small", "file": "fixtures/blurry_small.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200, "is_ok": false}},
+  {"name": "blurry_small_overrides", "file": "fixtures/blurry_small.jpg", "content_type": "image/jpeg", "settings": {"blur_min": 70.0, "bright_min": 10}, "expect": {"status": 200}},
+  {"name": "cmyk", "file": "fixtures/cmyk.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "empty", "file": "fixtures/empty.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 400, "cause": "UnidentifiedImageError"}},
+  {"name": "exif2", "file": "fixtures/exif2.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "exif3", "file": "fixtures/exif3.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "exif4", "file": "fixtures/exif4.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "exif5", "file": "fixtures/exif5.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "exif6", "file": "fixtures/exif6.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "exif7", "file": "fixtures/exif7.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "exif8", "file": "fixtures/exif8.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "gray_l", "file": "fixtures/gray_l.png", "content_type": "image/png", "settings": {}, "expect": {"status": 200}},
+  {"name": "near_threshold", "file": "fixtures/near_threshold.png", "content_type": "image/png", "settings": {}, "expect": {"status": 200, "is_ok": true, "blur_margin_max": 0.1}},
+  {"name": "no_content_type", "file": "fixtures/sharp_small.jpg", "content_type": "", "settings": {}, "expect": {"status": 415}},
+  {"name": "not_image", "file": "fixtures/sharp_small.jpg", "content_type": "text/plain", "settings": {}, "expect": {"status": 415, "cause": null}},
+  {"name": "one_pixel", "file": "fixtures/one_pixel.png", "content_type": "image/png", "settings": {}, "expect": {"status": 200, "is_ok": false}},
+  {"name": "overlimit_header", "file": "fixtures/overlimit_header.png", "content_type": "image/png", "settings": {}, "expect": {"status": 400, "cause": "ImageTooLarge"}},
+  {"name": "palette_p", "file": "fixtures/palette_p.png", "content_type": "image/png", "settings": {}, "expect": {"status": 200}},
+  {"name": "photo_1600x1200", "file": "fixtures/photo_1600x1200.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "photo_4032x3024_exif6", "file": "fixtures/photo_4032x3024_exif6.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "rgba", "file": "fixtures/rgba.png", "content_type": "image/png", "settings": {}, "expect": {"status": 200}},
+  {"name": "sharp_small", "file": "fixtures/sharp_small.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200, "is_ok": true}},
+  {"name": "strivoimg1", "file": "fixtures/strivoimg1.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 200}},
+  {"name": "too_large", "file": "fixtures/photo_4032x3024_exif6.jpg", "content_type": "image/jpeg", "settings": {"max_upload_mb": 1}, "expect": {"status": 413}},
+  {"name": "truncated", "file": "fixtures/truncated.jpg", "content_type": "image/jpeg", "settings": {}, "expect": {"status": 400, "cause": "OSError"}},
+  {"name": "underexposed", "file": "fixtures/underexposed.png", "content_type": "image/png", "settings": {}, "expect": {"status": 200, "is_ok": false}}
+ ]
+}
